@@ -4,7 +4,6 @@
     <p class="test">红色文字</p>
     <div class="wang"></div>
     <div v-if="1">1</div>
-    <div v-else="1">1</div>
   </div>
 </template>
 
