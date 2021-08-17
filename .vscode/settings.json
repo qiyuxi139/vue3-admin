@@ -1,0 +1,20 @@
+{
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  // "eslint.format.enable": true, //是否开启vscode的eslint
+  "eslint.validate": ["javascript", "vue"],
+  // 设置格式化程序为prettier
+  // "editor.defaultFormatter": "esbenp.prettier-vscode", // 设置默认格式化工具为prettier
+  "editor.formatOnSave": false, // 关闭自动保存
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[vue]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "vetur.format.enable": false,
+  "vetur.validation.script": false,
+  "vetur.validation.style": false,
+  "vetur.validation.template": false,
+}

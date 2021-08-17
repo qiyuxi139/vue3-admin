@@ -1,0 +1,13 @@
+**/*.svg
+/dist
+/build
+/assets/images
+*.png
+*.jpg
+*.jpeg
+*.md
+.gitignore
+.prettierignore
+.prettierrc.js
+.eslintcache
+.eslintignore
