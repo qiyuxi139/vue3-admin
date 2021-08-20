@@ -1,4 +1,41 @@
-// 全局scss变量
-$red: #ff0000;
+// sidebar
+// 侧边栏宽度
+$sidebarWidth: 300px;
+$sidebarWidthCollapse: 55px;
 
-$blue: #00ff00;
+// 侧边栏底色
+$sidebarBgColor: #fff;
+
+// 侧边栏收缩过渡时长
+$sidebarAnimateTime: 0.28s;
+
+// 一级菜单样式
+$menuBgColor:#FFFFFF;
+$menuBgHoverColor:#f1f7ff;
+$menuBgActiveColor:#f1f7ff;
+
+$menuTextColor:#737476;
+$menuTextHoverColor:#578FFE;
+$menuTextActiveColor:#578FFE;
+
+// 图标颜色
+$sidebarIconColor: #bbbbbb;
+$sidebarIconHoverColor: #578FFE;
+$sidebarIconActiveColor: #578FFE;
+
+// 多级菜单样式
+$subMenuBgColor:#ffffff;
+$subMenuBgHoverColor:#f1f7ff;
+$subMenuBgActiveColor:#f1f7ff;
+
+$subMenuTextColor:#737476;
+$subMenuTextHoverColor: #578FFE;
+$subMenuTextActiveColor:#578FFE;
+
+$sidebarSubIconColor: #bbbbbb;
+$sidebarSubIconHoverColor: #578FFE;
+$sidebarSubIconActiveColor: #578FFE;
+
+
+// header 
+$headerHeight: 50px;

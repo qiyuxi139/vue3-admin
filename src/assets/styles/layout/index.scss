@@ -1,0 +1,10 @@
+@import './sidebar.scss';
+@import './head.scss';
+@import './main.scss';
+
+.right-wrapper {
+  transition: margin-left $sidebarAnimateTime;
+  margin-left: $sidebarWidth;
+  position: relative;
+}
+

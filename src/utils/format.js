@@ -14,6 +14,9 @@ export function fixedTwo(price) {
   return (+price).toFixed(2);
 }
 
+export function formatTime() {}
+
 export default {
-  fixedTwo
+  fixedTwo,
+  formatTime
 };

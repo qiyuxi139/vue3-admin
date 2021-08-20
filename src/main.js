@@ -1,7 +1,7 @@
 import { createApp } from "vue";
 import App from "./App.vue";
 import store from "./store";
-import router from "./routes";
+import router from "./router";
 import ElementPlus from "element-plus";
 import "./assets/styles/index.scss"; // 引入自定义样式
 

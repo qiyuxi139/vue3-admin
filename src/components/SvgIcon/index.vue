@@ -9,7 +9,7 @@ import { computed } from "vue";
 
 // eslint-disable-next-line no-undef
 const props = defineProps({
-  name: {
+  icon: {
     type: String,
     required: true
   },
@@ -19,10 +19,10 @@ const props = defineProps({
   }
 });
 
-const iconName = computed(() => `#icon-${props.name}`);
+const iconName = computed(() => `#icon-${props.icon}`);
 const svgClass = computed(() => {
-  if (props.name) {
-    return `svg-icon icon-${props.name}`;
+  if (props.icon) {
+    return `svg-icon icon-${props.icon}`;
   }
   return "svg-icon";
 });

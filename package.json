@@ -3,16 +3,19 @@
   "version": "0.0.0",
   "scripts": {
     "dev": "vite",
+    "dev:force": "vite --force",
     "build": "vite build",
-    "serve": "vite preview",
     "lint": "eslint --ext .js,.vue src/",
+    "serve": "vite preview",
     "prepare": "husky install"
   },
   "dependencies": {
     "axios": "^0.21.1",
     "element-plus": "^1.0.2-beta.70",
     "js-cookie": "^3.0.0",
+    "path-to-regexp": "^6.2.0",
     "qs": "^6.10.1",
+    "screenfull": "^5.1.0",
     "vue": "^3.0.5",
     "vue-router": "^4.0.11",
     "vuex": "^4.0.2"

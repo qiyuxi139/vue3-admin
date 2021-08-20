@@ -16,11 +16,12 @@ export default defineConfig({
     alias: {
       "@": resolve(__dirname, "./src"),
       "~": resolve(__dirname, "./node_modules")
-    }
+    },
+    extensions: [".mjs", ".js", ".ts", ".jsx", ".tsx", ".json"]
   },
   publicDir: "public",
   server: {
-    open: "/index.html",
+    open: "/",
     port: 3000,
     strictPort: false,
     https: false, // 开启https

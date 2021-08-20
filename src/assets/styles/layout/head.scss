@@ -1,0 +1,37 @@
+  // 头部
+  .head-wrapper {
+    padding-left: 0;
+    height: $headerHeight;
+    .head-content {
+      height: $headerHeight;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      .left {
+        display: flex;
+        align-items: center;
+        .sidebarControlWrap {
+          cursor: pointer;
+          line-height: $headerHeight;
+          height: 100%;
+          padding: 0 15px;
+          box-sizing: border-box;
+          text-align: center;
+          .control {
+            font-size: 20px;
+            color: #666;
+          }
+          &:hover {
+            background: rgba(0, 0, 0, 0.025);
+          }
+        }
+      }
+      .right {
+        display: flex;
+        align-items: center;
+        .screenfullControl {
+          margin-right: 16px;
+        }
+      }
+    }
+  }

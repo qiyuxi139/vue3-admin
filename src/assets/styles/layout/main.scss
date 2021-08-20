@@ -1,0 +1,12 @@
+// 内容区
+.main-wrapper {
+  padding: 0;
+  border: 10px solid #cccccc;
+  box-sizing: border-box;
+  overflow: hidden;
+  position: relative;
+  .main-scrollbar {
+    box-sizing: border-box;
+    padding: 20px;
+  }
+}
