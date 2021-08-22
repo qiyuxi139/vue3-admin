@@ -5,6 +5,7 @@
 .right-wrapper {
   transition: margin-left $sidebarAnimateTime;
   margin-left: $sidebarWidth;
+  min-width: 700px;
   position: relative;
 }
 

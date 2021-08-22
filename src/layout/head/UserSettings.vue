@@ -19,7 +19,23 @@
 </template>
 
 <script setup>
-function logout() {}
+import { useRouter, useRoute } from "vue-router";
+import { useStore } from "vuex";
+
+const router = useRouter();
+const route = useRoute();
+const store = useStore();
+
+function logout() {
+  const { path } = route;
+  store.dispatch("user/changeToken", null);
+  router.push({
+    path: "/login",
+    query: {
+      redirect: path
+    }
+  });
+}
 </script>
 
 <style lang="scss">

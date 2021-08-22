@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from "vue-router";
 import Layout from "@/layout/index.vue";
+import { handleBeforeEach, handleAfterEach } from "./config";
 
 export const routes = [
   {
@@ -109,5 +110,9 @@ const router = createRouter({
   history: createWebHistory(),
   routes
 });
+
+router.beforeEach(handleBeforeEach);
+
+router.afterEach(handleAfterEach);
 
 export default router;

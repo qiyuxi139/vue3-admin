@@ -2,7 +2,6 @@ import { mHasOwnProperty } from "@/utils/common";
 import Cookies from "js-cookie";
 
 export const SIDEBAR_STATUS_KEY = "SIDEBAR_STATUS_KEY";
-window.mCookies = Cookies;
 
 const state = {
   sidebarFold: !!+Cookies.get(SIDEBAR_STATUS_KEY)

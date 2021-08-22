@@ -14,7 +14,7 @@
     border-right: none;
   }
   .horizontal-collapse-transition {
-    transition: none;
+    transition: 0s width ease-in-out, 0s padding-left ease-in-out, 0s padding-right ease-in-out;
   }
   .side-scrollbar {
     .el-scrollbar__wrap,
@@ -97,40 +97,6 @@
           }
         }
       }
-      // .el-submenu__title {
-      //   background-color: $subMenuBg;
-      //   color: $menuTextColor;
-      //   &:hover {
-      //     background-color: $subMenuHover;
-      //     color: $menuHoverTextColor;
-      //     .svg-icon {
-      //       color: $sidebarIconHoverColor;
-      //     }
-      //   }
-      // }
-      // .el-menu-item {
-      //   background-color: $subMenuBg;
-      //   color: $subMenuTextColor;
-      //   display: flex;
-      //   align-items: center;
-      //   &>svg, &>span {
-      //     flex-grow: 0;
-      //     flex-shrink: 0;
-      //   }
-      //   &:hover {
-      //     background-color: $menuHover;
-      //     color: $subMenuHoverTextColor;
-      //     .svg-icon {
-      //       color: $sidebarIconHoverColor;
-      //     }
-      //   }
-      //   &.is-active {
-      //     color: $subMenuTextActiveColor;
-      //     .svg-icon {
-      //       color: $sidebarIconActiveColor;
-      //     }
-      //   }
-      // }
     }
   }
 }
@@ -144,15 +110,7 @@
   }
 
   .submenu-title-noDropdown {
-    padding: 0 !important;
     position: relative;
-    .el-tooltip {
-      padding: 0 !important;
-
-      .svg-icon {
-        margin-left: 20px;
-      }
-    }
   }
 
   .el-submenu {

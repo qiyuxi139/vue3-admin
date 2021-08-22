@@ -8,6 +8,8 @@ const SVG_PATH = join(resolve(__dirname, "./src/assets/svg"), "/");
 
 // SCSS全局声明变量
 const GLOBAL_VAR = "./src/assets/styles/global-var.scss";
+// Scss全局样式
+const GLOBAL_STYLES = "./src/assets/styles/global-styles.scss";
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -38,7 +40,7 @@ export default defineConfig({
   css: {
     preprocessorOptions: {
       scss: {
-        additionalData: `@import "${GLOBAL_VAR}";` // 添加全局样式
+        additionalData: `@import "${GLOBAL_VAR}"; @import "${GLOBAL_STYLES}";` // 添加全局样式
       }
     }
   }
