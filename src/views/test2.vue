@@ -3,6 +3,7 @@
     <div>
       这是TEST2这是TEST2这是TEST2这是TEST2这是TEST2这是TEST2这是TEST2这是TEST2这是TEST2这是TEST2这是TEST2这是TEST2这是TEST2这是TEST2这是TEST2这是TEST2这是TEST2这是TEST2这是TEST2这是TEST2这是TEST2这是TEST2这是TEST2这是TEST2这是TEST2
     </div>
+    <img src="@/assets/images/test.png" />
   </div>
 </template>
 
