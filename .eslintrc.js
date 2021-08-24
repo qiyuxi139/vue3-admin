@@ -39,6 +39,7 @@ module.exports = {
     "no-extra-semi": 2, // 禁止多余的冒号
     "no-multi-spaces": 1, // 不能用多余的空格
     "no-redeclare": 2, // 禁止重复声明变量
+    "no-extra-parens": 0,
     "no-trailing-spaces": 1, // 一行结束后面不要有空格
     "object-curly-spacing": [0, "never"], // 大括号内是否允许不必要的空格
     "sort-vars": 0, // 变量声明时排序

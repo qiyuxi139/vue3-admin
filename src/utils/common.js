@@ -47,6 +47,12 @@ export function getIncludesKeyObj(obj, fields) {
   return specifyKeyObj;
 }
 
+/**
+ * 得到排除到传入键数组中的对象
+ * @param {Object} obj Object
+ * @param {Arryar} fields Arryar
+ * @returns Object
+ */
 export function getExcludeKeyObj(obj, fields) {
   const keys = Object.keys(obj);
   const diff = getDifference(fields, keys);
@@ -57,6 +63,12 @@ export function getExcludeKeyObj(obj, fields) {
   return excludesKeyObj;
 }
 
+/**
+ * 判断某个属性是否在对象内
+ * @param {Obejct} obj Obejct
+ * @param {String} key String
+ * @returns Boolean
+ */
 export function mHasOwnProperty(obj, key) {
   return Object.prototype.hasOwnProperty.call(obj, key);
 }
