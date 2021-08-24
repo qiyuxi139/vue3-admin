@@ -1,10 +1,14 @@
 // 内容区
 .main-wrapper {
   padding: 0;
-  border: 10px solid #cccccc;
+  border: 10px solid #fbfbfb;
   box-sizing: border-box;
-  overflow: hidden;
+  // overflow: hidden;
+  overflow: visible;
   position: relative;
+  &.headFixed {
+    margin-top: $headerBgColor;
+  }
   .main-scrollbar {
     box-sizing: border-box;
     padding: 20px;

@@ -2,6 +2,7 @@
   .head-wrapper {
     padding-left: 0;
     height: $headerHeight;
+    background-color: $headerBgColor;
     .head-content {
       height: $headerHeight;
       display: flex;
