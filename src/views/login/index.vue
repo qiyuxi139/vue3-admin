@@ -1,7 +1,13 @@
 <template>
   <div class="app-login">
     <h2 class="title">后台管理登录</h2>
-    <el-form :model="loginForm" :rules="loginFormRules" ref="loginFormDomRef" label-width="0px" class="loginForm">
+    <el-form
+      :model="loginForm"
+      :rules="loginFormRules"
+      ref="loginFormDomRef"
+      label-width="0px"
+      class="loginForm"
+    >
       <el-form-item prop="username">
         <span class="prefixIcon">
           <SvgIcon icon="user" />
@@ -20,7 +26,10 @@
           @keyup.enter="handleLogin"
         />
         <span class="afterFixIcon">
-          <SvgIcon :icon="pwdVisibleRef ? 'eye-display' : 'eye-hide'" @click="handleSwitchVisible" />
+          <SvgIcon
+            :icon="pwdVisibleRef ? 'eye-display' : 'eye-hide'"
+            @click="handleSwitchVisible"
+          />
         </span>
       </el-form-item>
       <el-form-item label-width="0px">

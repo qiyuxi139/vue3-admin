@@ -2,7 +2,9 @@
   <div class="app-user-settings">
     <el-dropdown class="dropdown" trigger="click">
       <div class="avatar-wrapper">
-        <span class="el-dropdown-link">下拉菜单<i class="el-icon-arrow-down el-icon--right"></i> </span>
+        <span class="el-dropdown-link">
+          下拉菜单<i class="el-icon-arrow-down el-icon--right" />
+        </span>
       </div>
       <template #dropdown>
         <el-dropdown-menu>

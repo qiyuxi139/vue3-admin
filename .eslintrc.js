@@ -51,7 +51,7 @@ module.exports = {
     "no-empty": 2, // 块语句内容不能为空
     "no-empty-character-class": 2, // 正则表达式中的[]内容不能为空
     "no-ex-assign": 2, // 禁止给catch语句中的异常参数赋值
-    "no-extra-parens": 2, // 禁止非必要的括号
+    "no-extra-parens": 0, // 禁止非必要的括号
     "no-extra-semi": 2, // 禁止多余的冒号
     "no-multi-spaces": 1, // 不能用多余的空格
     "no-redeclare": 2, // 禁止重复声明变量

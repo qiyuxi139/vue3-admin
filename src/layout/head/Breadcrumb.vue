@@ -2,7 +2,10 @@
   <el-breadcrumb class="app-breadcrumb" separator="/">
     <transition-group name="breadcrumb">
       <el-breadcrumb-item v-for="(item, index) in state.levelList" :key="item.path">
-        <span v-if="item.redirect === 'noRedirect' || index == state.levelList.length - 1" class="no-redirect">
+        <span
+          v-if="item.redirect === 'noRedirect' || index == state.levelList.length - 1"
+          class="no-redirect"
+        >
           {{ item.meta.title }}
         </span>
         <a v-else @click.prevent="handleLink(item)">{{ item.meta.title }}</a>
@@ -35,7 +38,9 @@ function getBreadcrumb() {
     matched = [{ path: "/", meta: { title: "首页" } }].concat(matched);
   }
 
-  state.levelList = matched.filter((item) => item.meta && item.meta.title && item.meta.breadcrumb !== false);
+  state.levelList = matched.filter(
+    (item) => item.meta && item.meta.title && item.meta.breadcrumb !== false
+  );
 }
 
 // 是否是首页
