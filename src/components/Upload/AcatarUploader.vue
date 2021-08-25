@@ -13,7 +13,7 @@
   >
     <template v-if="!isUpload">
       <img v-if="disabled" :src="src" class="avatar" />
-      <i v-else class="el-icon-plus avatar-uploader-icon"></i>
+      <i v-else class="el-icon-plus avatar-uploader-icon" />
       <div class="actions" v-if="disabled">
         <div class="iconWrap">
           <i class="el-icon-zoom-in" @click="handlePreview" />
@@ -22,7 +22,12 @@
         </div>
       </div>
     </template>
-    <el-progress v-else type="circle" :percentage="percentage" :status="percentage === 100 ? 'success' : ''" />
+    <el-progress
+      v-else
+      type="circle"
+      :percentage="percentage"
+      :status="percentage === 100 ? 'success' : ''"
+    />
   </el-upload>
   <el-dialog v-model="dialogPreview" custom-class="previewDialog">
     <img :src="src" alt="" class="img" />
@@ -34,7 +39,6 @@ import { ref, toRefs, computed } from "vue";
 import { ElMessage, ElMessageBox } from "element-plus";
 import fileUtils from "@/utils/file";
 
-// eslint-disable-next-line no-undef
 const props = defineProps({
   src: {
     type: String,
@@ -52,7 +56,6 @@ const config = {
   headers: {}
 };
 
-// eslint-disable-next-line no-undef
 const emit = defineEmits(["on-delete", "on-success", "on-error"]);
 
 const disabled = computed(() => {

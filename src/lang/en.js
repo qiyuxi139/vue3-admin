@@ -1,6 +1,7 @@
 import elementEn from "element-plus/es/locale/lang/en";
 
 export default {
+  ...elementEn,
   lang: "English",
-  ...elementEn
+  test: "test"
 };

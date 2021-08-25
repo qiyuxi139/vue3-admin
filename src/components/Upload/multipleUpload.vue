@@ -27,7 +27,6 @@
 import { ref, toRefs, computed, watchEffect, unref } from "vue";
 import { ElMessage } from "element-plus";
 
-// eslint-disable-next-line no-undef
 const props = defineProps({
   limit: {
     type: Number,
@@ -48,7 +47,6 @@ const props = defineProps({
 });
 const { limit, initList, disabled, accept } = toRefs(props);
 
-// eslint-disable-next-line no-undef
 const emit = defineEmits(["on-delete", "on-success", "on-error"]);
 
 const config = {

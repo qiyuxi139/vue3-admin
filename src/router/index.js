@@ -23,7 +23,7 @@ export const routes = [
     component: Layout,
     redirect: "/menu1/test1",
     meta: {
-      title: "菜单1",
+      title: "test",
       icon: "people"
     },
     children: [

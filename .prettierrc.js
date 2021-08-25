@@ -9,5 +9,6 @@ module.exports = {
   arrowParens: 'always',
   endOfLine: 'lf',
   trailingComma: 'none',
+  camelcase: 'none',
   eslintIntegration: true
 };

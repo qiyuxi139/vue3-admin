@@ -18,7 +18,7 @@
 
 <script setup>
 import SvgIcon from "@/components/SvgIcon/index.vue";
-// eslint-disable-next-line no-undef
+
 const props = defineProps({
   langs: {
     type: Array,
@@ -30,7 +30,6 @@ const props = defineProps({
   }
 });
 
-// eslint-disable-next-line no-undef
 const emit = defineEmits(["on-change"]);
 
 const handleChange = (command) => {

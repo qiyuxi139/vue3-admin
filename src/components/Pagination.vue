@@ -16,7 +16,6 @@
 <script setup>
 import { toRefs, computed } from "vue";
 
-// eslint-disable-next-line no-undef
 const props = defineProps({
   page: {
     type: Number,
@@ -37,7 +36,6 @@ const props = defineProps({
 });
 const { page, limit, total, pageSizes } = toRefs(props);
 
-// eslint-disable-next-line no-undef
 const emit = defineEmits(["on-change"]);
 
 // 当总数小于或等于 每页显示量最小的时候隐藏分页器

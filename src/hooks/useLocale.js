@@ -1,16 +1,14 @@
-import { ref } from "vue";
 import { useLocaleInject } from "element-plus/packages/hooks/use-locale";
-import langs from "@/lang";
+import { locale, allLang } from "@/lang";
 import { mHasOwnProperty, type } from "@/utils/common";
-console.log(langs);
+console.log(allLang);
 export default function useLocale() {
-  const locale = ref(langs["zh"]);
   const { t } = useLocaleInject();
   const setLocale = (key) => {
-    if (!(type(key) === "string" && mHasOwnProperty(langs, key))) {
+    if (!(type(key) === "string" && mHasOwnProperty(allLang, key))) {
       throw new TypeError("arg error");
     }
-    locale.value = langs[key];
+    locale.value = allLang[key];
   };
   return {
     locale,

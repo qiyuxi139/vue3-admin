@@ -4,6 +4,7 @@
       这是TEST2这是TEST2这是TEST2这是TEST2这是TEST2这是TEST2这是TEST2这是TEST2这是TEST2这是TEST2这是TEST2这是TEST2这是TEST2这是TEST2这是TEST2这是TEST2这是TEST2这是TEST2这是TEST2这是TEST2这是TEST2这是TEST2这是TEST2这是TEST2这是TEST2
     </div>
     <img src="@/assets/images/test.png" />
+    <button v-on:click="closeModal()">Close</button>
   </div>
 </template>
 

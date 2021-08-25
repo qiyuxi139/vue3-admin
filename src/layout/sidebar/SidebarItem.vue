@@ -41,7 +41,6 @@ import { toRefs, reactive } from "vue";
 import SvgIcon from "@/components/SvgIcon/index.vue";
 import { isExternal } from "@/utils/validate";
 import AppLink from "./Link.vue";
-// eslint-disable-next-line no-undef
 const props = defineProps({
   item: {
     type: Object,
