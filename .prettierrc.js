@@ -1,5 +1,5 @@
 module.exports = {
-  printWidth: 120,
+  printWidth: 100,
   tableWidth: 2, // 每个缩进级别的空格数
   tabs: false,
   semi: true, // 行尾是否要分号

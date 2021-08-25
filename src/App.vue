@@ -1,13 +1,17 @@
 <template>
-  <keep-alive>
+  <el-config-provider :locale="locale">
     <router-view />
-  </keep-alive>
+  </el-config-provider>
 </template>
 
 <script setup>
-console.log("当前BASE_URL", import.meta.env.VITE_BASE_URL);
-// This starter template is using Vue 3 experimental <script setup> SFCs
-// Check out https://github.com/vuejs/rfcs/blob/master/active-rfcs/0040-script-setup.md
+import { watchEffect } from "vue";
+import useLocale from "@/hooks/useLocale";
+const { locale } = useLocale();
+watchEffect(() => {
+  const a = locale.value;
+  console.log(a, "watch");
+});
 </script>
 
 <style lang="scss"></style>

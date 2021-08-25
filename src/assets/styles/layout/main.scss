@@ -3,8 +3,10 @@
   padding: 0;
   border: 10px solid #fbfbfb;
   box-sizing: border-box;
+  min-height: calc(100% - #{$headerHeight});
   // overflow: hidden;
   overflow: visible;
+  overflow-x: hidden;
   position: relative;
   &.headFixed {
     margin-top: $headerBgColor;

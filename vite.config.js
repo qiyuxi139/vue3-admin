@@ -17,6 +17,7 @@ export default defineConfig({
   resolve: {
     alias: {
       "@": resolve(__dirname, "./src"),
+      "@element-plus": resolve(__dirname, "./node_modules/element-plus/packages"),
       "~": resolve(__dirname, "./node_modules")
     },
     extensions: [".mjs", ".js", ".ts", ".jsx", ".tsx", ".json"]

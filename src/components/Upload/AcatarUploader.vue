@@ -30,7 +30,7 @@
 </template>
 
 <script setup>
-import { ref, toRefs, computed, defineEmits } from "vue";
+import { ref, toRefs, computed } from "vue";
 import { ElMessage, ElMessageBox } from "element-plus";
 import fileUtils from "@/utils/file";
 
@@ -52,6 +52,7 @@ const config = {
   headers: {}
 };
 
+// eslint-disable-next-line no-undef
 const emit = defineEmits(["on-delete", "on-success", "on-error"]);
 
 const disabled = computed(() => {

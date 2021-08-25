@@ -3,17 +3,17 @@ import App from "./App.vue";
 import store from "./store";
 import router from "./router";
 import ElementPlus from "element-plus";
+import locale from "element-plus/es/locale/lang/zh-cn";
 import "./assets/styles/index.scss"; // 引入自定义样式
 
 const app = createApp(App);
 
-// 仓库
-app.use(store);
+app.use(store); // 仓库
 
-// 路由
-app.use(router);
+app.use(router); // 路由
 
-// element-ui
-app.use(ElementPlus);
+app.use(ElementPlus, {
+  locale
+}); // element-ui
 
 app.mount("#app");

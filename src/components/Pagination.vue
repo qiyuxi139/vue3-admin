@@ -1,0 +1,57 @@
+<template>
+  <el-pagination
+    @size-change="handleSizeChange"
+    background
+    @current-change="handleCurrentChange"
+    :hide-on-single-page="isHide"
+    :current-page="page"
+    :page-sizes="pageSizes"
+    :page-size="limit"
+    layout="total, sizes, prev, pager, next, jumper"
+    :total="total"
+  >
+  </el-pagination>
+</template>
+
+<script setup>
+import { toRefs, computed } from "vue";
+
+// eslint-disable-next-line no-undef
+const props = defineProps({
+  page: {
+    type: Number,
+    default: 1
+  },
+  limit: {
+    type: Number,
+    default: 10
+  },
+  total: {
+    type: Number,
+    default: 0
+  },
+  pageSizes: {
+    type: Array,
+    default: () => [5, 10, 20, 30, 40, 50]
+  }
+});
+const { page, limit, total, pageSizes } = toRefs(props);
+
+// eslint-disable-next-line no-undef
+const emit = defineEmits(["on-change"]);
+
+// 当总数小于或等于 每页显示量最小的时候隐藏分页器
+const isHide = computed(() => {
+  return total.value <= Math.min(...pageSizes.value);
+});
+
+const handleSizeChange = (newLimit) => {
+  emit("on-change", page.value, newLimit);
+};
+
+const handleCurrentChange = (newPage) => {
+  emit("on-change", newPage, limit.value);
+};
+</script>
+
+<style lang="scss"></style>

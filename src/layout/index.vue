@@ -37,7 +37,6 @@ const headFixed = ref(false);
 const sidebarFold = useSidebarFold();
 
 const handleAffixChange = (bool) => {
-  console.log(bool);
   headFixed.value = bool;
 };
 </script>
