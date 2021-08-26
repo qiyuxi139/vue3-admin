@@ -86,5 +86,23 @@ getBreadcrumb();
     color: #97a8be;
     cursor: text;
   }
+  .breadcrumb-enter-active,
+  .breadcrumb-leave-active {
+    transition: all 0.3s;
+  }
+
+  .breadcrumb-enter,
+  .breadcrumb-leave-active {
+    opacity: 0;
+    transform: translateX(50%);
+  }
+
+  .breadcrumb-move {
+    transition: all 0.3s;
+  }
+
+  .breadcrumb-leave-active {
+    position: absolute;
+  }
 }
 </style>

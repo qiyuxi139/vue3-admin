@@ -22,8 +22,6 @@ function findSvgFile(dir) {
         .toString()
         .replace(clearReturn, "")
         .replace(svgTitle, ($1, $2) => {
-          // console.log(++i)
-          // console.log(dirent.name)
           let width = 0;
 
           let height = 0;
@@ -56,8 +54,6 @@ export const svgBuilder = (path, perfix = "icon") => {
   }
   idPerfix = perfix;
   const res = findSvgFile(path);
-  // console.log(res.length)
-  // const res = []
 
   return {
     name: "svg-transform",

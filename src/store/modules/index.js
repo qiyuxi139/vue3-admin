@@ -1,7 +1,7 @@
-import settings from "./settings";
-import user from "./user";
+import { getModulesDefault } from "@/utils/module";
 
-export default {
-  settings,
-  user
-};
+const ms = import.meta.globEager("./*.js");
+
+const modules = getModulesDefault(ms);
+
+export default modules;

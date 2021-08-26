@@ -5,8 +5,8 @@
 </template>
 
 <script setup>
-import useLocale from "@/hooks/useLocale";
-const { locale } = useLocale();
+import useLang from "@/hooks/useLang";
+const { locale } = useLang();
 </script>
 
 <style lang="scss"></style>
