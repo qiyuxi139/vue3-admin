@@ -7,12 +7,17 @@
 </template>
 
 <script setup>
-import { routes } from "@/router";
+import { computed } from "vue";
 import { useRoute } from "vue-router";
+import { useStore } from "vuex";
 import SidebarItem from "./SidebarItem.vue";
 import useSidebarFold from "../hooks/useSidebarFold";
 
 const sidebarFold = useSidebarFold();
 
 const route = useRoute();
+const store = useStore();
+
+const routes = computed(() => store.getters.routes);
+console.log(routes);
 </script>

@@ -73,10 +73,23 @@ export function mHasOwnProperty(obj, key) {
   return Object.prototype.hasOwnProperty.call(obj, key);
 }
 
+export function delay(duration) {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve();
+    }, duration);
+  });
+}
+
+export function random(start, end) {
+  return Math.floor(Math.random() * (end - start) + start);
+}
+
 export default {
   type,
   getIntersection,
   getIncludesKeyObj,
   getExcludeKeyObj,
-  mHasOwnProperty
+  mHasOwnProperty,
+  delay
 };

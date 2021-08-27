@@ -13,4 +13,6 @@ app.use(ElementPlus); // element-ui
 
 app.use(router); // 路由
 
-app.mount("#app");
+store.dispatch("permission/getRoles").then(() => {
+  app.mount("#app");
+});

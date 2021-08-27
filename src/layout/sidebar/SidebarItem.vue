@@ -15,13 +15,16 @@
           <template #title>
             <span>{{ childState.onlyOneChild.meta.title }}</span>
           </template>
-          <SvgIcon :icon="childState.onlyOneChild.meta.icon || (item.meta && item.meta.icon)" />
+          <SvgIcon
+            v-if="item.meta && item.meta.icon"
+            :icon="childState.onlyOneChild.meta.icon || (item.meta && item.meta.icon)"
+          />
         </el-menu-item>
       </AppLink>
     </template>
     <el-submenu v-else ref="subMenu" :index="resolvePath(item.path)" popper-append-to-body>
       <template v-slot:title v-if="item.meta">
-        <SvgIcon :icon="item.meta && item.meta.icon" />
+        <SvgIcon v-if="item.meta.icon" :icon="item.meta && item.meta.icon" />
         <span>{{ item.meta.title }}</span>
       </template>
       <SidebarItem

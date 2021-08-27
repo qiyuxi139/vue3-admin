@@ -19,6 +19,20 @@ const actions = {
       setToken(token);
       commit("CHANGE_TOKEN", token);
     }
+  },
+  async login({ dispatch }, payload) {
+    const { username, password } = payload;
+    // 假登录
+    if (username === "admin" && password === "123") {
+      // 获取用户权限
+      await dispatch("changeToken", Math.random().toString(16).slice(2));
+      return true;
+      // getRedirect();
+    }
+    return false;
+  },
+  async logout({ dispatch }) {
+    await dispatch("changeToken", null);
   }
 };
 

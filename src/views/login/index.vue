@@ -45,7 +45,7 @@
 import { reactive, ref, unref } from "vue";
 import { useRouter, useRoute } from "vue-router";
 import { useStore } from "vuex";
-import { ElMessage } from "element-plus";
+import message from "@/utils/reset/mElMessage";
 import SvgIcon from "@/components/SvgIcon/index.vue";
 
 const router = useRouter();
@@ -77,21 +77,22 @@ function handleLogin() {
     if (!form) {
       return;
     }
-    form.validate((res) => {
+    form.validate(async (res) => {
       if (!res) {
         return;
       }
       const { username, password } = loginForm;
-      if (username === "admin" && password === "123") {
-        // 假登录
-        store.dispatch("user/changeToken", Math.random().toString(16).slice(2));
+      const result = await store.dispatch("user/login", { username, password });
+      if (result) {
+        await store.dispatch("permission/getRoles"); // 获取sidebar权限
         getRedirect();
+        message.success("登录成功!");
       } else {
-        ElMessage.error("账号或密码错误！");
+        message.error("账号或密码错误! 请重新输入");
       }
     });
   } catch (error) {
-    console.log(error);
+    message.error(error.message);
   } finally {
     islogingRef.value = false;
   }

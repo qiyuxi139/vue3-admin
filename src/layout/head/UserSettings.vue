@@ -28,9 +28,9 @@ const router = useRouter();
 const route = useRoute();
 const store = useStore();
 
-function logout() {
+async function logout() {
   const { path } = route;
-  store.dispatch("user/changeToken", null);
+  await store.dispatch("user/logout");
   router.push({
     path: "/login",
     query: {
