@@ -23,7 +23,13 @@ async function mount() {
   } catch (error) {
     message.error(error.message || "未知错误!");
   } finally {
-    app.use(router).use(store).use(ElementPlus).mount("#app");
+    app
+      .use(router)
+      .use(store)
+      .use(ElementPlus, {
+        size: "medium"
+      })
+      .mount("#app");
   }
   loading.close();
 }

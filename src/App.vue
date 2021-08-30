@@ -6,6 +6,7 @@
 
 <script setup>
 import useLang from "@/hooks/useLang";
+
 const { locale } = useLang();
 </script>
 

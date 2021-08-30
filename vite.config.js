@@ -1,5 +1,6 @@
 import { defineConfig } from "vite";
 import vue from "@vitejs/plugin-vue";
+import { viteMockServe } from "vite-plugin-mock";
 import { svgBuilder } from "./plugins/svgBuilder";
 import { resolve, join } from "path";
 
@@ -10,10 +11,25 @@ const SVG_PATH = join(resolve(__dirname, "./src/assets/svg"), "/");
 const GLOBAL_VAR = "./src/assets/styles/global-var.scss";
 // Scss全局样式
 const GLOBAL_STYLES = "./src/assets/styles/global-styles.scss";
+// 是否启动mock
+const localEnabled = process.env.USE_MOCK || false;
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [vue(), svgBuilder(SVG_PATH)],
+  plugins: [
+    vue(),
+    viteMockServe({
+      mockPath: "mock",
+      supportTs: false,
+      localEnabled,
+      ignore: undefined,
+      watchFiles: true,
+      prodEnabled: false,
+      configPath: "",
+      logger: true
+    }),
+    svgBuilder(SVG_PATH)
+  ],
   resolve: {
     alias: {
       "@": resolve(__dirname, "./src"),

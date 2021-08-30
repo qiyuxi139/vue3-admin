@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "dev": "vite",
-    "dev:force": "vite --force",
+    "dev:mock": "USE_MOCK=true vite",
     "dev:test": "vite --mode test",
     "dev:prod": "vite --mode production",
     "build:dev": "vite build --mode devlopment",

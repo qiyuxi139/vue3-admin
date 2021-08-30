@@ -8,6 +8,9 @@
   overflow: visible;
   overflow-x: hidden;
   position: relative;
+  &>div {
+    padding: 15px;
+  }
   &.headFixed {
     margin-top: $headerBgColor;
   }

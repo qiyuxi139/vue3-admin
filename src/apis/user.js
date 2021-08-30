@@ -1,7 +1,5 @@
-// import request from "@/utils/axios";
-import { delay, random } from "@/utils/common";
-import roles from "../../mock/role.js";
+import request from "@/utils/axios";
+// import { delay, random } from "@/utils/common";
 export async function getRole() {
-  await delay(random(2, 6) * 100);
-  return roles;
+  return await request.get("/api/user/roles");
 }

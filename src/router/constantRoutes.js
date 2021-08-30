@@ -17,25 +17,6 @@ export default [
     ]
   },
   {
-    path: "/user",
-    component: Layout,
-    alwaysShow: true,
-    meta: {
-      icon: "people",
-      title: "用户中心"
-    },
-    children: [
-      {
-        path: "set",
-        name: "UserSet",
-        component: () => import("@/views/user/set.vue"),
-        meta: {
-          title: "账户设置"
-        }
-      }
-    ]
-  },
-  {
     path: "/login",
     name: "Login",
     component: () => import("@/views/login/index.vue"),
@@ -52,5 +33,26 @@ export default [
     name: "NotFound",
     component: () => import("@/views/404/index.vue"),
     hidden: true
+  },
+  {
+    path: "/item",
+    component: Layout,
+    alwaysShow: true,
+    name: "Item",
+    meta: {
+      icon: "item_management",
+      title: "商品管理"
+    },
+    children: [
+      {
+        path: "itemLibrary",
+        name: "itemLibrary",
+        component: () => import("@/views/item/library.vue"),
+        meta: {
+          title: "商品库",
+          icon: "item_lib"
+        }
+      }
+    ]
   }
 ];

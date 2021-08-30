@@ -44,11 +44,17 @@ const isHide = computed(() => {
 });
 
 const handleSizeChange = (newLimit) => {
-  emit("on-change", page.value, newLimit);
+  emit("on-change", {
+    page: page.value,
+    limit: newLimit
+  });
 };
 
 const handleCurrentChange = (newPage) => {
-  emit("on-change", newPage, limit.value);
+  emit("on-change", {
+    page: newPage,
+    limit: limit.value
+  });
 };
 </script>
 
