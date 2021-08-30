@@ -19,5 +19,4 @@ const route = useRoute();
 const store = useStore();
 
 const routes = computed(() => store.getters.routes);
-console.log(routes);
 </script>

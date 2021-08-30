@@ -3,16 +3,22 @@ import asyncRoutes from "@/router/asyncRoutes";
 import router from "@/router";
 const state = {
   routes: constantRoutes,
-  role: [] // 用户权限列表
+  roles: [] // 用户权限列表
 };
 
 const mutations = {
+  RESET_PERMISSION(state) {
+    state.routes = constantRoutes;
+    state.roles = [];
+  },
   CHANGE_ROUTES(state, payload) {
     state.routes = payload;
   },
   ADD_ROUTES(state, payload) {
     state.routes = state.routes.concat(payload);
-    console.log(state.routes, payload);
+  },
+  CHANGE_ROLES(state, payload) {
+    state.roles = payload;
   }
 };
 
@@ -23,10 +29,20 @@ const actions = {
   addRoutes({ commit }, payload) {
     commit("ADD_ROUTES", payload);
   },
+  changeRoles({ commit }, payload) {
+    commit("CHANGE_ROLES", payload);
+  },
+  resetPermission({ commit }) {
+    commit("RESET_PERMISSION");
+  },
   // 获取权限
-  getRoles({ commit }) {
-    router.addRoutes(asyncRoutes);
+  async getRoles({ commit, dispatch }) {
+    // 先重置在进行
+    commit("RESET_PERMISSION");
+    // const routes = [...asyncRoutes, { path: "/:a*", redirect: "/404", hidden: true }];
     commit("ADD_ROUTES", asyncRoutes);
+    router.addRoutes(asyncRoutes);
+    await dispatch("changeRoles", asyncRoutes);
   }
 };
 

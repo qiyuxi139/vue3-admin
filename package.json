@@ -6,8 +6,8 @@
     "dev:force": "vite --force",
     "dev:test": "vite --mode test",
     "dev:prod": "vite --mode production",
-    "build": "vite build",
     "build:dev": "vite build --mode devlopment",
+    "build:prod": "vite build --mode production",
     "build:test": "vite build --mode test",
     "lint": "eslint --ext .js,.vue src/",
     "serve": "vite preview",
@@ -36,8 +36,10 @@
     "eslint-plugin-vue": "^7.16.0",
     "husky": "^7.0.0",
     "lint-staged": "^11.1.2",
+    "mockjs": "^1.1.0",
     "prettier": "^2.2.1",
     "sass": "^1.37.5",
-    "vite": "^2.5.1"
+    "vite": "^2.5.1",
+    "vite-plugin-mock": "^2.9.6"
   }
 }

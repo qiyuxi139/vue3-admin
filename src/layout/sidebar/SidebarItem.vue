@@ -16,7 +16,7 @@
             <span>{{ childState.onlyOneChild.meta.title }}</span>
           </template>
           <SvgIcon
-            v-if="item.meta && item.meta.icon"
+            v-if="childState.onlyOneChild.meta && childState.onlyOneChild.meta.icon"
             :icon="childState.onlyOneChild.meta.icon || (item.meta && item.meta.icon)"
           />
         </el-menu-item>

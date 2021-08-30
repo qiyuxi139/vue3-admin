@@ -4,10 +4,11 @@ import constantRoutes from "./constantRoutes";
 
 const router = createRouter({
   history: createWebHistory(),
+  scrollBehavior: () => ({
+    y: 0
+  }),
   routes: constantRoutes
 });
-
-console.log(router);
 
 router.beforeEach(handleBeforeEach);
 

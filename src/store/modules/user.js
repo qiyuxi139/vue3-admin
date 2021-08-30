@@ -33,6 +33,7 @@ const actions = {
   },
   async logout({ dispatch }) {
     await dispatch("changeToken", null);
+    await dispatch("permission/resetPermission", null, { root: true });
   }
 };
 

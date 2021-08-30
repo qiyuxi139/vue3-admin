@@ -1,18 +1,31 @@
 import { createApp } from "vue";
 import App from "./App.vue";
 import store from "./store";
-import ElementPlus from "element-plus";
+import ElementPlus, { ElLoading } from "element-plus";
 import router from "./router";
+import message from "@/utils/reset/mElMessage";
+import { getToken } from "@/utils/auth";
 import "./assets/styles/index.scss"; // 引入自定义样式
 
 const app = createApp(App);
 
-app.use(store); // 仓库
+async function mount() {
+  const loading = ElLoading.service({
+    lock: true,
+    text: "Loading",
+    spinner: "el-icon-loading",
+    background: "rgba(0, 0, 0, 0.7)"
+  });
+  try {
+    if (getToken()) {
+      await store.dispatch("permission/getRoles");
+    }
+  } catch (error) {
+    message.error(error.message || "未知错误!");
+  } finally {
+    app.use(router).use(store).use(ElementPlus).mount("#app");
+  }
+  loading.close();
+}
 
-app.use(ElementPlus); // element-ui
-
-app.use(router); // 路由
-
-store.dispatch("permission/getRoles").then(() => {
-  app.mount("#app");
-});
+mount();

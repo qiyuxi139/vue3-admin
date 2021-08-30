@@ -12,7 +12,12 @@
         <span class="prefixIcon">
           <SvgIcon icon="user" />
         </span>
-        <el-input v-model="loginForm.username" class="inputItem" placeholder="请输入账号" />
+        <el-input
+          ref="usenameRefDom"
+          v-model="loginForm.username"
+          class="inputItem"
+          placeholder="请输入账号"
+        />
       </el-form-item>
       <el-form-item prop="password">
         <span class="prefixIcon">
@@ -42,7 +47,7 @@
 </template>
 
 <script setup>
-import { reactive, ref, unref } from "vue";
+import { reactive, ref, unref, onMounted } from "vue";
 import { useRouter, useRoute } from "vue-router";
 import { useStore } from "vuex";
 import message from "@/utils/reset/mElMessage";
@@ -53,8 +58,8 @@ const route = useRoute();
 const store = useStore();
 
 const loginForm = reactive({
-  username: "",
-  password: ""
+  username: "admin",
+  password: "123"
 });
 const loginFormDomRef = ref(null);
 const loginFormRules = {
@@ -84,7 +89,7 @@ function handleLogin() {
       const { username, password } = loginForm;
       const result = await store.dispatch("user/login", { username, password });
       if (result) {
-        await store.dispatch("permission/getRoles"); // 获取sidebar权限
+        await store.dispatch("permission/getRoles");
         getRedirect();
         message.success("登录成功!");
       } else {
@@ -103,6 +108,12 @@ function getRedirect() {
   const toPath = redirect ? redirect : "/";
   router.replace(toPath);
 }
+
+// 自动聚焦
+const usenameRefDom = ref(null);
+onMounted(() => {
+  usenameRefDom.value.focus();
+});
 </script>
 
 <style lang="scss">
