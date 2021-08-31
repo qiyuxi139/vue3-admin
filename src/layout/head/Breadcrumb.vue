@@ -58,7 +58,6 @@ function handleLink(item) {
     router.push(redirect);
     return;
   }
-
   router.push(pathCompile(path));
 }
 

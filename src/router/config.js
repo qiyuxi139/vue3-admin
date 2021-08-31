@@ -13,7 +13,6 @@ NProgress.configure({
 const whiteList = ["/login"];
 
 export async function handleBeforeEach(to, from, next) {
-  console.log("handleBeforeEach");
   NProgress.start();
   const token = getToken();
   if (token) {
@@ -49,7 +48,6 @@ export async function handleBeforeEach(to, from, next) {
       next();
       return;
     }
-    console.log("no token", to);
     next(`/login?redirect=${to.path}`);
   }
 }

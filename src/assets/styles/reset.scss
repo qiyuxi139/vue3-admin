@@ -26,3 +26,8 @@ a {
 .app-sidebar {
   height: 100%;
 }
+
+.el-dropdown-menu__item:not(.is-disabled):hover, .el-dropdown-menu__item:focus {
+  background-color: #ecf5ff;
+  color: #66b1ff;
+}

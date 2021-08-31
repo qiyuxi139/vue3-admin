@@ -43,6 +43,7 @@ export default [
       icon: "item_management",
       title: "商品管理"
     },
+    redirect: "/item/itemLibrary",
     children: [
       {
         path: "itemLibrary",

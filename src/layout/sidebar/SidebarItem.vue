@@ -44,6 +44,7 @@ import { toRefs, reactive } from "vue";
 import SvgIcon from "@/components/SvgIcon/index.vue";
 import { isExternal } from "@/utils/validate";
 import AppLink from "./Link.vue";
+import { join } from "@/utils/path";
 const props = defineProps({
   item: {
     type: Object,
@@ -91,9 +92,6 @@ function resolvePath(routePath) {
   if (isExternal(basePath.value)) {
     return basePath.value;
   }
-  if (basePath.value === "/") {
-    return basePath.value + routePath + "";
-  }
-  return basePath.value + "/" + routePath;
+  return join(basePath.value, routePath);
 }
 </script>

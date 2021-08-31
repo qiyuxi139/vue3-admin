@@ -11,7 +11,29 @@
     </el-form>
     <div class="content">
       <el-table :data="list" border style="width: 100%">
-        <el-table-column prop="name" label="姓名" width="180"> </el-table-column>
+        <el-table-column prop="name" align="center" label="展示图" width="180">
+          <template #default="{ row }">
+            <BigImg :src="row.img" />
+          </template>
+        </el-table-column>
+        <el-table-column prop="name" align="center" label="姓名" />
+        <el-table-column prop="category" align="center" label="类目" />
+        <el-table-column prop="brand" align="center" label="品牌" />
+        <el-table-column align="center" label="长 * 宽 * 高">
+          <template #default="{ row }">
+            {{ `${row.long} * ${row.width} * ${row.height}` }}
+          </template>
+        </el-table-column>
+        <el-table-column align="center" label="官网价格">
+          <template #default="{ row }">
+            {{ fixedTwo(row.price) }}
+          </template>
+        </el-table-column>
+        <el-table-column align="center" label="创建时间">
+          <template #default="{ row }">
+            {{ dayjs(+row.createdAt).format("YYYY-MM-DD HH:mm:ss") }}
+          </template>
+        </el-table-column>
       </el-table>
       <Pagination
         :page="pager.page"
@@ -28,6 +50,9 @@ import { reactive, ref } from "vue";
 import { getItemList } from "@/apis/item";
 import message from "@/utils/reset/mElMessage";
 import Pagination from "@/components/Pagination.vue";
+import BigImg from "@/components/ShowImage/BigImg.vue";
+import { fixedTwo } from "@/utils/format";
+import dayjs from "dayjs";
 
 const form = reactive({
   name: ""

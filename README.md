@@ -6,27 +6,22 @@
 
 ## 编译条件
 
-  - dev
-    ```bash
-    # 启动项目
-    npm run dev
-    # 打包
-    npm run build:dev
-    ```
-  - test
-    ```bash
-    # 启动项目
-    npm run dev:test
-    # 打包
-    npm run build:test
-    ```
-  - build
-    ```bash
-    # 启动项目
-    npm run dev:prod
-    # 打包
-    npm run build:prod
-    ```
+```json
+{
+"scripts": {
+    "dev": "vite", // 运行
+    "serve": "vite preview", // 预览打包状态
+    "dev:mock": "USE_MOCK=true vite", // 开发数据模拟
+    "dev:staging": "vite --mode staging", // 临时工作台环境
+    "dev:prod": "vite --mode production", // 生产环境
+    "build:dev": "vite build --mode devlopment",
+    "build:prod": "vite build --mode production",
+    "build:staging": "vite build --mode staging",
+    "lint": "eslint --ext .js,.vue src/",
+    "prepare": "husky install"
+  }
+}
+```
 
 ## 结构目录
 

@@ -58,8 +58,8 @@ const route = useRoute();
 const store = useStore();
 
 const loginForm = reactive({
-  username: "admin",
-  password: "123"
+  username: "",
+  password: ""
 });
 const loginFormDomRef = ref(null);
 const loginFormRules = {
@@ -125,7 +125,7 @@ onMounted(() => {
 @mixin iconWrap {
   width: 32px;
   text-align: center;
-  line-height: 40px;
+  line-height: 32px;
   z-index: 9;
 }
 
