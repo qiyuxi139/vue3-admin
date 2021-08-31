@@ -1,4 +1,5 @@
 import { getToken, setToken, removeToken } from "@/utils/auth";
+import axios from "@/utils/axios";
 const state = {
   token: getToken() || null
 };
@@ -25,6 +26,12 @@ const actions = {
     // 假登录
     if (username === "admin" && password === "123") {
       // 获取用户权限
+      axios.get("user/login", {
+        params: {
+          username,
+          password
+        }
+      });
       await dispatch("changeToken", Math.random().toString(16).slice(2));
       return true;
       // getRedirect();
