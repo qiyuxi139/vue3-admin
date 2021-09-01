@@ -1,9 +1,12 @@
 {
   "name": "vue3-admin",
+  "author": "",
   "version": "0.0.0",
+  "keywords": [],
+  "license": "MIT",
   "scripts": {
     "dev": "vite",
-    "dev:mock": "USE_MOCK=true vite",
+    "dev:mock": "cross-env USE_MOCK=true vite",
     "dev:staging": "vite --mode staging",
     "dev:prod": "vite --mode production",
     "build:dev": "vite build --mode devlopment",
@@ -11,8 +14,8 @@
     "build:staging": "vite build --mode staging",
     "lint": "eslint --ext .js,.vue src/",
     "serve": "vite preview",
-    "cypress:open": "cypress open",
-    "cypress:run": "cypress run",
+    "cy:open": "cypress open",
+    "cy:run": "cypress run",
     "prepare": "husky install"
   },
   "dependencies": {
@@ -34,6 +37,7 @@
     "@vue/compiler-sfc": "^3.2.6",
     "@vue/eslint-config-prettier": "^6.0.0",
     "babel-eslint": "^10.1.0",
+    "cross-env": "^7.0.3",
     "cypress": "^8.3.1",
     "eslint": "^7.32.0",
     "eslint-plugin-prettier": "^3.3.1",

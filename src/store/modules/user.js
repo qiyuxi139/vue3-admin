@@ -1,5 +1,6 @@
 import { getToken, setToken, removeToken } from "@/utils/auth";
 import axios from "@/utils/axios";
+import qs from "qs";
 const state = {
   token: getToken() || null
 };
@@ -26,11 +27,11 @@ const actions = {
     // 假登录
     if (username === "admin" && password === "123") {
       // 获取用户权限
-      axios.get("user/login", {
-        params: {
+      axios.post("/api/user/login", {
+        data: qs.stringify({
           username,
           password
-        }
+        })
       });
       await dispatch("changeToken", Math.random().toString(16).slice(2));
       return true;

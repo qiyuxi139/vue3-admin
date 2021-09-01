@@ -1,6 +1,6 @@
 describe("Login test", () => {
   it('ite',() => {
-    cy.visit('http://localhost:3000/login');
+    cy.visit('/login');
     cy.get(".loginForm > div:nth-of-type(1) .inputItem input").type("admin");
     
     cy.get(".loginBtn").click();
@@ -8,7 +8,7 @@ describe("Login test", () => {
 
     cy.get(".loginForm > div:nth-of-type(2) .inputItem input").type("123");
 
-    cy.intercept("/user/*", {
+    cy.intercept("/api/user/login", {
       code: 200,
       message: "success",
       result: true

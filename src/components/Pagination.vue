@@ -9,6 +9,7 @@
     :page-size="limit"
     layout="total, sizes, prev, pager, next, jumper"
     :total="total"
+    class="my-pagination"
   >
   </el-pagination>
 </template>
@@ -58,4 +59,14 @@ const handleCurrentChange = (newPage) => {
 };
 </script>
 
-<style lang="scss"></style>
+<style lang="scss">
+.my-pagination {
+  margin: 15px 0;
+  .btn-prev,
+  .btn-bext {
+    .el-icon {
+      display: inline-block;
+    }
+  }
+}
+</style>
