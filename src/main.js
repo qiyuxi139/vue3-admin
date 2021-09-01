@@ -34,4 +34,9 @@ async function mount() {
   loading.close();
 }
 
+// 错误处理
+app.config.errorHandler = (msg, vm, trace) => {
+  console.log(msg.message, vm, trace);
+};
+
 mount();

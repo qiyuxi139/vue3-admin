@@ -5,4 +5,4 @@ node_modules
 /public
 /docs
 **/*.svg
-/cypress
+# /cypress

@@ -15,9 +15,19 @@ module.exports = {
     defineProps: "readonly",
     defineEmits: "readonly",
     defineExpose: "readonly",
-    withDefaults: "readonly"
+    withDefaults: "readonly",
+    cy: true,
+    Cypress: true
   },
-  extends: ["plugin:prettier/recommended", "plugin:vue/vue3-essential", "eslint:recommended"],
+  plugins: [
+    "@cypress/dev"
+  ],
+  extends: [
+    "plugin:prettier/recommended",
+    "plugin:vue/vue3-essential",
+    "eslint:recommended",
+    "plugin:@cypress/dev/tests"
+  ],
   rules: {
     "vue/no-dupe-keys": [
       "error",
