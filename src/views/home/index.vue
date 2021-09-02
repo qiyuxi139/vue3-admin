@@ -1,14 +1,14 @@
 <template>
   <div class="homeWrap">
-    首页
-    <el-button @click="handleError">触发错误</el-button>
+    <h1>首页</h1>
+    <DataTimePicker v-model="form.range" />
   </div>
 </template>
 
 <script setup>
-console.log(import.meta.env);
-
-const handleError = () => {
-  throw new TypeError("发生错误了");
-};
+import { reactive } from "vue";
+import DataTimePicker from "@/components/DataTimePicker.vue";
+const form = reactive({
+  range: []
+});
 </script>

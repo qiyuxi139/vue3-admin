@@ -8,5 +8,19 @@
   min-width: 700px;
   position: relative;
   display: block;
+  .el-affix.isFixed {
+    width: calc(100% - #{$sidebarWidth}) !important;
+    .el-affix--fixed {
+      transition: width $sidebarAnimateTime;
+      width: calc(100% - #{$sidebarWidth}) !important;
+    }
+  }
+  .hideSidebar {
+    .el-affix.isFixed {
+      width: calc(100% - #{$sidebarWidthCollapse}) !important;
+      .el-affix--fixed {
+        width: calc(100% - #{$sidebarWidthCollapse}) !important;
+      }
+    }
+  }
 }
-

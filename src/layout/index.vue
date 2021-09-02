@@ -5,7 +5,12 @@
         <AppSlide />
       </el-aside>
       <el-container class="right-wrapper">
-        <el-affix v-if="fixedHead" :offset="0" @change="handleAffixChange">
+        <el-affix
+          v-if="fixedHead"
+          :offset="0"
+          @change="handleAffixChange"
+          :class="{ isFixed: headFixed }"
+        >
           <el-header class="head-wrapper">
             <AppHead />
           </el-header>
