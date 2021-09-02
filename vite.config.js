@@ -13,7 +13,9 @@ const GLOBAL_VAR = "./src/assets/styles/global-var.scss";
 const GLOBAL_STYLES = "./src/assets/styles/global-styles.scss";
 // 是否启动mock
 const localEnabled = process.env.USE_MOCK || false;
-
+// 是否自动开启浏览器
+const AUTO_OPEN_BROWESR = process.env.AUTO_OPEN_BROWESR;
+const autoOpenBrowser = AUTO_OPEN_BROWESR === "true" || AUTO_OPEN_BROWESR === undefined;
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
@@ -40,7 +42,7 @@ export default defineConfig({
   },
   publicDir: "public",
   server: {
-    open: "/",
+    open: autoOpenBrowser ? "/" : "",
     port: 3000,
     strictPort: false,
     https: false, // 开启https

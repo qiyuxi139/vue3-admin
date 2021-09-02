@@ -63,7 +63,7 @@ const handleCurrentChange = (newPage) => {
 .my-pagination {
   margin: 15px 0;
   .btn-prev,
-  .btn-bext {
+  .btn-next {
     .el-icon {
       display: inline-block;
     }

@@ -17,7 +17,8 @@ module.exports = {
     defineExpose: "readonly",
     withDefaults: "readonly",
     cy: true,
-    Cypress: true
+    Cypress: true,
+    assert: true
   },
   plugins: [
     "@cypress/dev"
@@ -76,7 +77,7 @@ module.exports = {
     "no-self-assign": 2, // 禁止自我赋值
     "no-self-compare": 2, // 禁止自身比较
     "no-unmodified-loop-condition": 2, // 禁用一成不变的循环条件
-    "no-unused-expressions": 1, // 禁止出现未使用的表达式
+    "no-unused-expressions": 0, // 禁止出现未使用的表达式
     "no-useless-call": 1, // 禁止不必要的 .call() 和 .apply()
     "array-bracket-spacing": [
       1,

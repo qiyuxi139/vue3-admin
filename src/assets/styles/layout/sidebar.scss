@@ -1,4 +1,15 @@
 // 侧边栏
+@mixin sideBarRight {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 0;
+  background-color: $siderBarRightBg;
+  transition: width $siderBarRightTransition;
+}
+
 .side-wrapper {
   width: $sidebarWidth;
   transition: width $sidebarAnimateTime;
@@ -14,7 +25,7 @@
     border-right: none;
   }
   .horizontal-collapse-transition {
-    transition: 0s width ease-in-out, 0s padding-left ease-in-out, 0s padding-right ease-in-out;
+    transition: 0s width, 0s padding-left ease-in-out, 0s padding-right ease-in-out;
   }
   .side-scrollbar {
     .el-scrollbar__wrap,
@@ -55,11 +66,22 @@
       }
 
       .submenu-title-noDropdown {
+        &::after {
+          @include sideBarRight;
+        }
+        &:hover {
+          &::after {
+            width: $siderBarRightWidth;
+          }
+        }
         &.is-active {
           background-color: $menuBgActiveColor;
           color: $menuTextActiveColor;
           .svg-icon {
             color: $sidebarIconActiveColor;
+          }
+          &::after {
+            width: $siderBarRightWidth;
           }
         }
       }
@@ -78,8 +100,12 @@
         .el-menu-item {
           background-color: $subMenuBgColor;
           color: $subMenuTextColor;
+          position: relative;
           .svg-icon {
             color: $sidebarSubIconColor;
+          }
+          &::after {
+            @include sideBarRight;
           }
           &:hover {
             background-color: $subMenuBgHoverColor;
@@ -87,10 +113,16 @@
             .svg-icon {
               color: $sidebarSubIconHoverColor;
             }
+            &::after {
+              width: $siderBarRightWidth;
+            }
           }
           &.is-active {
             background-color: $subMenuBgActiveColor;
             color: $subMenuTextActiveColor;
+            &::after {
+              width: $siderBarRightWidth;
+            }
             .svg-icon {
               color: $sidebarSubIconActiveColor;
             }
@@ -102,6 +134,12 @@
 }
 
 .hideSidebar {
+  .horizontal-collapse-transition {
+    .nest-menu {
+      display: none;
+    }
+    transition: 0.3s width, 0s padding-left ease-in-out, 0s padding-right ease-in-out;
+  }
   .side-wrapper {
     width: $sidebarWidthCollapse !important;
   }
@@ -128,12 +166,13 @@
   .el-menu--collapse {
     .el-submenu {
       &>.el-submenu__title {
-        &>span {
+        &>span,
+        i {
+          display: inline-block;
           height: 0;
           width: 0;
           overflow: hidden;
           visibility: hidden;
-          display: inline-block;
         }
       }
     }
@@ -166,5 +205,33 @@
   }
   .linkStyle {
     text-decoration: none;
+    .el-menu-item {
+      .svg-icon {
+        color: $sidebarSubIconColor;
+      }
+      &::after {
+        @include sideBarRight;
+      }
+      &:hover {
+        background-color: $subMenuBgHoverColor;
+        color: $subMenuTextHoverColor;
+        .svg-icon {
+          color: $sidebarSubIconHoverColor;
+        }
+        &::after {
+          width: $siderBarRightWidth;
+        }
+      }
+      &.is-active {
+        background-color: $subMenuBgActiveColor;
+        color: $subMenuTextActiveColor;
+        &::after {
+          width: $siderBarRightWidth;
+        }
+        .svg-icon {
+          color: $sidebarSubIconActiveColor;
+        }
+      }
+    }
   }
 }

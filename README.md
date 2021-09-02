@@ -18,7 +18,11 @@
     "build:prod": "vite build --mode production",
     "build:staging": "vite build --mode staging",
     "lint": "eslint --ext .js,.vue src/",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "cy:open": "cypress open", // 打开cypress
+    "cy:run": "cypress run", // e2e测试
+    "test:e2e": "cross-env AUTO_OPEN_BROWESR=false start-server-and-test dev http-get://localhost:3000 cy:run", // 启动开发服务器并测试
+    "test:mock:e2e": "cross-env AUTO_OPEN_BROWESR=false start-server-and-test dev:mock http-get://localhost:3000 cy:run" // 启动mock并测试
   }
 }
 ```
@@ -29,6 +33,7 @@
 .
 ├── .husky                     # git hooks
 ├── .vscode                    # vs编辑器配置，用于自动格式化
+├── cypress                    # e2e测试文件
 ├── mock                       # 项目mock 模拟数据
 ├── plugins                    # 插件
 │   └── svgBuilder.js          # 处理svg icon图标
