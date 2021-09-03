@@ -4,8 +4,9 @@
     :action="config.action"
     :headers="config.headers"
     :name="config.name"
+    :accept="accept"
     :show-file-list="false"
-    :disabled="disabled"
+    :disabled="mDisabled"
     :on-success="handleSuccess"
     :on-error="handleError"
     :on-progress="handleProcess"
@@ -18,7 +19,7 @@
         <div class="iconWrap">
           <i class="el-icon-zoom-in" @click="handlePreview" />
           <i class="el-icon-download" @click="handleDownload" />
-          <i class="el-icon-delete" @click="handleDelete" />
+          <i class="el-icon-delete" v-if="!disabled" @click="handleDelete" />
         </div>
       </div>
     </template>
@@ -43,10 +44,18 @@ const props = defineProps({
   src: {
     type: String,
     default: ""
+  },
+  disabled: {
+    type: Boolean,
+    default: false
+  },
+  accept: {
+    type: String,
+    default: "jpg,jpeg,png,gif"
   }
 });
 
-const { src } = toRefs(props);
+const { src, disabled, accept } = toRefs(props);
 const dialogPreview = ref(false);
 const percentage = ref(0); // 进度条
 const isUpload = ref(false); // 是否正在上传
@@ -58,17 +67,15 @@ const config = {
 
 const emit = defineEmits(["on-delete", "on-success", "on-error"]);
 
-const disabled = computed(() => {
-  return !!src.value || isUpload.value;
+const mDisabled = computed(() => {
+  return !!src.value || isUpload.value || disabled.value;
 });
 
 const beforeUpload = (file) => {
-  const isLt2M = file.size / 1024 / 1024 < 20;
-  if (!isLt2M) {
-    this.$message({
-      message: this.$t("component.ImgSize"),
-      type: "error"
-    });
+  const curSize = file.size / 1024 / 1024;
+  const limit = 20;
+  if (curSize > limit) {
+    ElMessage.info(`当前文件大小为${curSize}M, 超过${limit}M`);
     return false;
   }
   return new Promise((resolve) => {
@@ -102,7 +109,7 @@ const handleProcess = (event, file) => {
   if (file.status === "ready") {
     const timer = setInterval(() => {
       if (percentage.value < 75) {
-        percentage.value = percentage.value + 0.9;
+        percentage.value = percentage.value + 1;
       }
       if (["success", "fail"].includes(file.status)) {
         clearInterval(timer);
@@ -139,7 +146,9 @@ const handleDelete = () => {
     });
 };
 
-const handleDownload = () => {};
+const handleDownload = () => {
+  window.open(src.value, "_blank");
+};
 
 const handlePreview = () => {
   dialogPreview.value = !dialogPreview.value;

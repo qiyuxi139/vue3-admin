@@ -6,8 +6,9 @@
     :headers="config.handers"
     :name="config.name"
     :limit="limit"
+    :multiple="limit.length > 1"
     :accept="accept"
-    list-type="picture-card"
+    :list-type="listType"
     :before-upload="beforeUpload"
     :on-preview="handlePreview"
     :on-success="handleSuccess"
@@ -16,7 +17,10 @@
     :on-exceed="handleExceed"
     :file-list="cList"
   >
-    <i class="el-icon-plus" />
+    <el-button v-if="['picture-card', 'picture'].includes(listType)" type="primary">
+      点击上传
+    </el-button>
+    <i v-else class="el-icon-plus" />
   </el-upload>
   <el-dialog v-model="dialogPreview" custom-class="previewDialog">
     <img style="width: 100%" :src="imgSrc" alt="" class="img" />
@@ -43,9 +47,13 @@ const props = defineProps({
   disabled: {
     type: Boolean,
     default: false
+  },
+  listType: {
+    type: String,
+    default: "picture-card" // text/picture/picture-card
   }
 });
-const { limit, initList, disabled, accept } = toRefs(props);
+const { limit, initList, disabled, accept, listType } = toRefs(props);
 
 const emit = defineEmits(["on-delete", "on-success", "on-error"]);
 

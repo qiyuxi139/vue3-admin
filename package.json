@@ -32,6 +32,7 @@
     "element-plus": "^1.0.2-beta.71",
     "exif-js": "^2.3.0",
     "js-cookie": "^3.0.0",
+    "lodash": "^4.17.21",
     "nprogress": "^0.2.0",
     "path-to-regexp": "^6.2.0",
     "qs": "^6.10.1",
