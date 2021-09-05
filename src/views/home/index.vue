@@ -1,6 +1,6 @@
 <template>
   <div class="homeWrap">
-    <el-skeleton animated :rows="10" :loading="true" />
+    <el-button type="primary">HOME BUTTON</el-button>
   </div>
 </template>
 

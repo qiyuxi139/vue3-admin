@@ -2,25 +2,11 @@
 @import './head.scss';
 @import './main.scss';
 
-.right-wrapper {
-  transition: margin-left $sidebarAnimateTime;
-  margin-left: $sidebarWidth;
-  min-width: 700px;
-  position: relative;
-  display: block;
+.hideSidebar {
   .el-affix.isFixed {
-    width: calc(100% - #{$sidebarWidth}) !important;
+    width: calc(100% - #{$sidebarWidthCollapse}) !important;
     .el-affix--fixed {
-      transition: width $sidebarAnimateTime;
-      width: calc(100% - #{$sidebarWidth}) !important;
-    }
-  }
-  .hideSidebar {
-    .el-affix.isFixed {
       width: calc(100% - #{$sidebarWidthCollapse}) !important;
-      .el-affix--fixed {
-        width: calc(100% - #{$sidebarWidthCollapse}) !important;
-      }
     }
   }
 }

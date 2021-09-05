@@ -22,7 +22,7 @@
         </el-menu-item>
       </AppLink>
     </template>
-    <el-submenu v-else ref="subMenu" :index="resolvePath(item.path)" popper-append-to-body>
+    <el-sub-menu v-else :index="resolvePath(item.path)" popper-append-to-body>
       <template v-slot:title v-if="item.meta">
         <SvgIcon v-if="item.meta.icon" :icon="item.meta && item.meta.icon" />
         <span>{{ item.meta.title }}</span>
@@ -35,7 +35,7 @@
         :basePath="resolvePath(child.path)"
         class="nest-menu"
       />
-    </el-submenu>
+    </el-sub-menu>
   </div>
 </template>
 

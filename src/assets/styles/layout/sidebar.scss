@@ -40,7 +40,7 @@
       &.el-menu--collapse {
         width: 54px;
       }
-      .el-submenu__title,
+      .el-sub-menu__title,
       .submenu-title-noDropdown,
       .el-menu-item {
         .svg-icon {
@@ -53,7 +53,7 @@
       
       // 一级菜单交互
       .submenu-title-noDropdown,
-      .el-submenu__title {
+      .el-sub-menu__title {
         background-color: $menuBgColor;
         color: $menuTextColor;
         &:hover {
@@ -86,8 +86,8 @@
         }
       }
 
-      .el-submenu.is-active {
-        &>.el-submenu__title {
+      .el-sub-menu.is-active {
+        &>.el-sub-menu__title {
           color: $menuTextActiveColor;
           .svg-icon {
             color: $sidebarIconActiveColor;
@@ -151,21 +151,21 @@
     position: relative;
   }
 
-  .el-submenu {
+  .el-sub-menu {
     overflow: hidden;
-    &>.el-submenu__title {
+    &>.el-sub-menu__title {
       padding: 0 !important;
       .svg-icon {
         margin-left: 20px;
       }
-      .el-submenu__icon-arrow {
+      .el-sub-menu__icon-arrow {
         display: none;
       }
     }
   }
   .el-menu--collapse {
-    .el-submenu {
-      &>.el-submenu__title {
+    .el-sub-menu {
+      &>.el-sub-menu__title {
         &>span,
         i {
           display: inline-block;
