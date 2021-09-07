@@ -8,6 +8,8 @@
 import useLang from "@/hooks/useLang";
 
 const { locale } = useLang();
+
+console.log(import.meta.env);
 </script>
 
 <style lang="scss"></style>

@@ -10,7 +10,18 @@
 //
 //
 // -- This is a parent command --
-// Cypress.Commands.add('login', (email, password) => { ... })
+Cypress.Commands.add("login", (username, password) => {
+  cy.get(".loginForm > div:nth-of-type(1) .inputItem input").type(username);
+  cy.get(".loginBtn").click();
+  cy.get(".is-error").should("contain", "密码不能为空");
+  cy.get(".loginForm > div:nth-of-type(2) .inputItem input").type(password);
+  cy.intercept("/api/user/login", {
+    code: 200,
+    message: "success",
+    result: true
+  });
+  cy.get(".loginBtn").click();
+});
 //
 //
 // -- This is a child command --

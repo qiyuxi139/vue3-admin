@@ -11,16 +11,17 @@
 "scripts": {
     "dev": "vite", // 运行
     "serve": "vite preview", // 预览打包状态
-    "dev:mock": "USE_MOCK=true vite", // 开发数据模拟
+    "dev:mock": "cross-env USE_MOCK=true vite --mode mock", // 开发数据模拟
     "dev:staging": "vite --mode staging", // 临时工作台环境
     "dev:prod": "vite --mode production", // 生产环境
-    "build:dev": "vite build --mode devlopment",
+    "build:dev": "vite build --mode devlopment", // 开发环境打包
     "build:prod": "vite build --mode production",
     "build:staging": "vite build --mode staging",
-    "lint": "eslint --ext .js,.vue src/",
+    "lint": "eslint --ext .js,.vue src/", // eslint检查
     "prepare": "husky install",
     "cy:open": "cypress open", // 打开cypress
     "cy:run": "cypress run", // e2e测试
+    "prepare": "husky install",
     "test:e2e": "cross-env AUTO_OPEN_BROWESR=false start-server-and-test dev http-get://localhost:3000 cy:run", // 启动开发服务器并测试
     "test:mock:e2e": "cross-env AUTO_OPEN_BROWESR=false start-server-and-test dev:mock http-get://localhost:3000 cy:run" // 启动mock并测试
   }
@@ -47,7 +48,6 @@
 │   │   └── svg                # 项目所有 svg icons
 │   ├── components             # 全局公用组件
 │   ├── directive              # 全局指令
-│   ├── filters                # 全局 filter
 │   ├── hooks                  # 全局 hooks
 │   ├── lang                   # 国际化 language
 │   ├── layout                 # 全局 layout
@@ -57,7 +57,6 @@
 │   ├── views                  # views 所有页面
 │   ├── App.vue                # 入口页面
 │   ├── main.js                # 入口文件 加载组件 初始化等
-├── tests                      # 测试
 ├── .editorconfig              # 代码风格配置
 ├── .env.xxx                   # 环境变量配置
 ├── .eslintignore.js           # eslint 忽略规则
@@ -65,6 +64,10 @@
 ├── .gitignore.js              # git 忽略配置
 ├── .prettierignore.js         # prettier忽略配置
 ├── .prettierrc.js             # prettier配置
+├── .cypress.json              # cypress测试配置
 ├── index.html                 # 项目html模板
+├── jsconfig.json              # 项目html模板
+├── package-lock.json          # 语言服务
+├── package.json               # 项目html模板
 └── vite.config.js             # vite配置
 ```

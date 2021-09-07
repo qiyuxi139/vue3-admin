@@ -15,6 +15,11 @@ const whiteList = ["/login"];
 export async function handleBeforeEach(to, from, next) {
   NProgress.start();
   const token = getToken();
+  if (window.document) {
+    const title = to.meta && to.meta.title;
+    console.log(title, "title");
+    document.title = `${title || ""}${title ? " - " : ""}后台管理系统`;
+  }
   if (token) {
     // 存在token
     if (to.path === "/login") {

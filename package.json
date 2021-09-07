@@ -12,7 +12,7 @@
   "license": "MIT",
   "scripts": {
     "dev": "vite",
-    "dev:mock": "cross-env USE_MOCK=true vite",
+    "dev:mock": "cross-env USE_MOCK=true vite --mode mock",
     "dev:staging": "vite --mode staging",
     "dev:prod": "vite --mode production",
     "build:dev": "vite build --mode devlopment",
