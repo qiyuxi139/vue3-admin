@@ -11,6 +11,10 @@
 //
 // -- This is a parent command --
 Cypress.Commands.add("login", (username, password) => {
+  if (cy.getCookie("TOKEN_KEY")) {
+    return;
+  }
+  cy.visit("/login");
   cy.get(".loginForm > div:nth-of-type(1) .inputItem input").type(username);
   cy.get(".loginBtn").click();
   cy.get(".is-error").should("contain", "密码不能为空");
