@@ -1,8 +1,7 @@
-import request from "@/utils/axios";
-export async function getItemList(params) {
-  return await request({
-    method: "get",
-    url: "/api/item/lib/list",
-    params
-  });
-}
+import { handlerGetRequest } from "./handlers";
+
+export const getItemList = (params) => handlerGetRequest("/api/item/lib/list", params);
+
+export default {
+  getItemList
+};
