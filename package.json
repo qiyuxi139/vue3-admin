@@ -28,6 +28,7 @@
   },
   "dependencies": {
     "axios": "^0.21.1",
+    "clipboard": "^2.0.8",
     "dayjs": "^1.10.6",
     "element-plus": "^1.1.0-beta.8",
     "exif-js": "^2.3.0",

@@ -6,6 +6,7 @@ import router from "./router";
 import message from "@/utils/reset/mElMessage";
 import { getToken } from "@/utils/auth";
 import "./assets/styles/index.scss"; // 引入自定义样式
+import copyConfig from "./directive/copy";
 
 const app = createApp(App);
 
@@ -36,7 +37,9 @@ async function mount() {
 
 // 错误处理
 app.config.errorHandler = (msg, vm, trace) => {
-  console.log(msg.message, vm, trace);
+  console.log(msg, vm, trace);
 };
+
+app.directive("copy", copyConfig);
 
 mount();
