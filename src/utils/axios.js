@@ -28,7 +28,6 @@ function addPendingRequest(config) {
 // 检查是否存在重复请求，若存在则取消已发的请求。
 function removePendingRequest(config) {
   const requestKey = generateReqKey(config);
-  console.log("removePendingRequest");
   if (pendingRequest.has(requestKey)) {
     const cancelToken = pendingRequest.get(requestKey);
     cancelToken(requestKey);

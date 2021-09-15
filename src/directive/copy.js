@@ -3,7 +3,6 @@ import { omit } from "lodash";
 
 export default {
   beforeMount(el, binding) {
-    console.log("beforeMount", el, binding, binding.arg);
     const { arg, value } = binding;
     if (arg === "success") {
       el.vClipboardSuccess = value;
@@ -53,8 +52,5 @@ export default {
       el.cClipboard?.destroy();
       omit(el, ["cClipboard"]);
     }
-  },
-  mounted(el, binding, vnode, preVnode) {
-    console.log(el, binding, vnode, preVnode, "自定义指令参数");
   }
 };

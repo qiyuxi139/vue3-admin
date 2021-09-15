@@ -1,13 +1,13 @@
 import ClipboardJS from "clipboard";
 import message from "./reset/mElMessage";
 
-function getInstance(val) {
+function getInstance(val, container) {
   const el = document.createElement("button");
-  const clipboard = ClipboardJS(el, {
+  const clipboard = new ClipboardJS(el, {
     text() {
       return val;
     },
-    container: document.body
+    container: typeof container === "object" ? container : document.body
   });
   return {
     el,
@@ -23,24 +23,18 @@ function getInstance(val) {
  * 赋值某个字符串
  * @param {String} text 字符串文本
  */
-export function copy({ text, success, error }) {
-  const { el, clipboard, clear } = getInstance(text);
+export default function copy({ text, container, success, error, tips = true }) {
+  const { el, clipboard, clear } = getInstance(text, container);
   clipboard.on("success", (e) => {
-    if (success) {
-      clear();
-      return success(e);
-    }
+    success && success(e);
+    tips && message.success("复制成功");
     clear();
-    message.success("复制成功");
   });
 
   clipboard.on("error", (e) => {
-    if (error) {
-      clear();
-      return error(e);
-    }
+    error && error(e);
+    tips && message.error("复制失败");
     clear();
-    message.error("复制失败");
   });
   el.click();
 }
