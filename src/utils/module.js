@@ -1,3 +1,5 @@
+import { chain } from "lodash";
+
 /**
  * 获取路径中的文件名
  * @param {String} path 路径
@@ -18,10 +20,10 @@ export function getFilename(path) {
  * @returns Object
  */
 export function getModulesDefault(ms) {
-  return Object.keys(ms).reduce((obj, mKey) => {
-    obj[getFilename(mKey)] = ms[mKey].default;
-    return obj;
-  }, {});
+  return chain(ms)
+    .mapKeys((value, key) => getFilename(key))
+    .mapValues((value) => value.default)
+    .value();
 }
 
 export default {

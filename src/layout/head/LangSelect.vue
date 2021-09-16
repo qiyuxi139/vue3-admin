@@ -5,7 +5,7 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
+import { ref, inject } from "vue";
 import MSelect from "@/components/Select/index.vue";
 import SvgIcon from "@/components/SvgIcon/index.vue";
 import useLang from "@/hooks/useLang";
@@ -18,9 +18,11 @@ const langs = langDesc.map((it) => ({
   name: it.name
 }));
 
+const reload = inject("reload");
 const handleChange = (command) => {
   setLocale(command);
   select.value = command;
+  reload();
 };
 </script>
 
