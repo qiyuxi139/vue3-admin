@@ -53,7 +53,7 @@ module.exports = {
     "camelcase": 2,
     "eol-last": 1,
     "eqeqeq": 1,
-    "indent": [2, 2],
+    "indent": ["error", 2, { "SwitchCase": 1 }],
     "new-cap": 0,
     "newline-after-var": 0, // 变量声明后是否需要空一行
     "no-const-assign": 2, // 禁止修改const声明的变量
