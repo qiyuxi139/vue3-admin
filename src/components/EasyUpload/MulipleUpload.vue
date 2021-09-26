@@ -8,6 +8,7 @@
     :disabled="props.disabled"
     :accept="props.accept"
     :listType="props.listType"
+    :type="props.type"
   />
 </template>
 
@@ -36,6 +37,10 @@ const props = defineProps({
   listType: {
     type: String,
     default: "picture-card" // text/picture/picture-card
+  },
+  type: {
+    type: String,
+    default: "button"
   }
 });
 

@@ -34,7 +34,7 @@ async function logout() {
   router.push({
     path: "/login",
     query: {
-      redirect: path
+      redirect: window.encodeURIComponent(path)
     }
   });
 }

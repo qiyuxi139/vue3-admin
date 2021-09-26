@@ -1,5 +1,5 @@
 <template>
-  <svg :class="svgClass" v-bind="$attrs" :style="{ color: color }">
+  <svg :class="svgClass" v-bind="$attrs" :style="{ color: color }" @click="handleClick">
     <use :xlink:href="iconName" />
   </svg>
 </template>
@@ -18,6 +18,8 @@ const props = defineProps({
   }
 });
 
+const emit = defineEmits(["click"]);
+
 const iconName = computed(() => `#icon-${props.icon}`);
 const svgClass = computed(() => {
   if (props.icon) {
@@ -25,6 +27,10 @@ const svgClass = computed(() => {
   }
   return "svg-icon";
 });
+
+const handleClick = (e) => {
+  emit("click", e);
+};
 </script>
 
 <style lang="scss">

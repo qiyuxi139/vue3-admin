@@ -105,7 +105,7 @@ function handleLogin() {
 // 重定向到指定页面
 function getRedirect() {
   const redirect = route.query.redirect;
-  const toPath = redirect ? redirect : "/";
+  const toPath = redirect ? window.decodeURIComponent(redirect) : "/";
   router.replace(toPath);
 }
 
@@ -150,6 +150,10 @@ onMounted(() => {
     width: 100%;
   }
   .el-form-item__content {
+    input:-webkit-autofill {
+      box-shadow: inset 0 0 0 1000px #fff !important;
+      -webkit-text-fill-color: #333 !important;
+    }
     position: relative;
     .prefixIcon {
       position: absolute;

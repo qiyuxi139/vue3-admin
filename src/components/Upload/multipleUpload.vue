@@ -17,9 +17,7 @@
     :on-exceed="handleExceed"
     :file-list="cList"
   >
-    <el-button v-if="['picture-card', 'picture'].includes(listType)" type="primary">
-      点击上传
-    </el-button>
+    <el-button v-if="type === 'button'" type="primary">点击上传</el-button>
     <i v-else class="el-icon-plus" />
   </el-upload>
   <el-dialog v-model="dialogPreview" custom-class="previewDialog">
@@ -51,9 +49,13 @@ const props = defineProps({
   listType: {
     type: String,
     default: "picture-card" // text/picture/picture-card
+  },
+  type: {
+    type: String,
+    default: "button"
   }
 });
-const { limit, initList, disabled, accept, listType } = toRefs(props);
+const { limit, initList, disabled, accept, listType, type } = toRefs(props);
 
 const emit = defineEmits(["on-delete", "on-success", "on-error"]);
 

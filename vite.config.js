@@ -43,6 +43,7 @@ export default defineConfig({
   publicDir: "public",
   server: {
     open: autoOpenBrowser ? "/" : "",
+    host: "0.0.0.0",
     port: 3000,
     strictPort: false,
     https: false, // 开启https
