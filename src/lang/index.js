@@ -26,6 +26,7 @@ export const setLocale = (key) => {
     throw new TypeError("arg error");
   }
   locale.value = allLang[key];
+  store.dispatch("settings/changeLang", key);
   message.success("切换语言成功");
 };
 

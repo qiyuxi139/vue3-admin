@@ -13,9 +13,9 @@
     :before-upload="beforeUpload"
   >
     <template v-if="!isUpload">
-      <img v-if="disabled" :src="src" class="avatar" />
+      <img v-if="mDisabled" :src="src" class="avatar" />
       <i v-else class="el-icon-plus avatar-uploader-icon" />
-      <div class="actions" v-if="disabled">
+      <div class="actions" v-if="mDisabled">
         <div class="iconWrap">
           <i class="el-icon-zoom-in" @click="handlePreview" />
           <i class="el-icon-download" @click="handleDownload" />

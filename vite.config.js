@@ -1,4 +1,4 @@
-import { defineConfig } from "vite";
+import { defineConfig, searchForWorkspaceRoot } from "vite";
 import vue from "@vitejs/plugin-vue";
 import { viteMockServe } from "vite-plugin-mock";
 import { svgBuilder } from "./plugins/svgBuilder";
@@ -47,15 +47,21 @@ export default defineConfig({
     port: 3000,
     strictPort: false,
     https: false, // 开启https
-    proxy: {}
+    proxy: {},
+    fs: {
+      strict: true,
+      allow: [searchForWorkspaceRoot(process.cwd())]
+    }
   },
   build: {
     rollupOptions: {
       input: {
         main: resolve(__dirname, "./index.html")
-      }
+      },
+      output: {}
     },
-    outDir: "dist"
+    outDir: "dist",
+    assetsDir: "assets"
   },
   css: {
     preprocessorOptions: {

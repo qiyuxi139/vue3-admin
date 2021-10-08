@@ -1,5 +1,5 @@
 <template>
-  <MSelect :langs="langs" :select="select" @onChange="handleChange">
+  <MSelect :items="langs" :select="select" @onChange="handleChange">
     <SvgIcon icon="language" class="international-icon" />
   </MSelect>
 </template>
@@ -9,10 +9,12 @@ import { ref, inject } from "vue";
 import MSelect from "@/components/Select/index.vue";
 import SvgIcon from "@/components/SvgIcon/index.vue";
 import useLang from "@/hooks/useLang";
+import { useStore } from "vuex";
 
-const select = ref("zh");
+const store = useStore();
+
+const select = ref(store.getters.lang);
 const { setLocale, langDesc } = useLang();
-
 const langs = langDesc.map((it) => ({
   command: it.key,
   name: it.name

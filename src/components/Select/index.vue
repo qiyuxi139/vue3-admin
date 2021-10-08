@@ -4,7 +4,7 @@
     <template #dropdown>
       <el-dropdown-menu>
         <el-dropdown-item
-          v-for="it in props.langs"
+          v-for="it in props.items"
           :key="it.command"
           :command="it.command"
           :disabled="props.select === it.command"
@@ -20,7 +20,7 @@
 import SvgIcon from "@/components/SvgIcon/index.vue";
 
 const props = defineProps({
-  langs: {
+  items: {
     type: Array,
     default: () => []
   },
