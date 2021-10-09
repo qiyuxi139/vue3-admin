@@ -1,5 +1,5 @@
 <template>
-  <div class="itemLibrary">
+  <div class="listWrap">
     <el-form :model="form" inline ref="formRefDom" class="search">
       <el-form-item label="商品全称" prop="name">
         <el-input v-model="form.name" placeholder="请输入" />

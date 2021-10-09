@@ -4,14 +4,14 @@ export default [
   {
     path: "/",
     component: Layout,
-    hidden: true,
     children: [
       {
         path: "",
         name: "Index",
         component: () => import("@/views/home/index.vue"),
         meta: {
-          title: "首页"
+          title: "首页",
+          icon: "home"
         }
       }
     ]
@@ -35,23 +35,17 @@ export default [
     hidden: true
   },
   {
-    path: "/item",
+    path: "/list",
     component: Layout,
-    alwaysShow: true,
-    name: "Item",
-    meta: {
-      icon: "item_management",
-      title: "商品管理"
-    },
-    redirect: "/item/itemLibrary",
+    name: "List",
     children: [
       {
-        path: "itemLibrary",
-        name: "itemLibrary",
-        component: () => import("@/views/item/library.vue"),
+        path: "",
+        name: "ListIndex",
+        component: () => import("@/views/list/list.vue"),
         meta: {
-          title: "商品库",
-          icon: "item_lib"
+          icon: "list",
+          title: "列表"
         }
       }
     ]

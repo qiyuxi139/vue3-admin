@@ -1,7 +1,7 @@
 import { getCommonList } from "./utils/list";
 export default [
   {
-    url: "/api/item/lib/list",
+    url: "/api/list",
     method: "get",
     response: (req) => {
       const allLength = 48;
