@@ -31,7 +31,7 @@ const store = useStore();
 async function logout() {
   const { path } = route;
   await store.dispatch("user/logout");
-  router.push({
+  router.replace({
     path: "/login",
     query: {
       redirect: window.encodeURIComponent(path)

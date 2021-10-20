@@ -26,25 +26,6 @@ export async function handleBeforeEach(to, from, next) {
       next({ path: from.path });
       return;
     }
-    // const hasRoles = store.getters.roles && store.getters.roles.length > 0;
-    // // 判断是否获取了权限
-    // if (hasRoles) {
-    //   console.log("有权限了", router);
-    //   next();
-    // } else {
-    //   // 没有就请求
-    //   console.log("没有权限");
-    //   try {
-    //     await store.dispatch("permission/getRoles");
-    //     next({ ...to, replace: true });
-    //     window.router = router;
-    //   } catch (error) {
-    //     // 发生错误清空登录信息 跳往登录页
-    //     message.error(error.message || "error");
-    //     store.dispatch("user/logout");
-    //     next(`/login?redirect=${to.path}`);
-    //   }
-    // }
     next();
   } else {
     // 不存在token
@@ -52,7 +33,11 @@ export async function handleBeforeEach(to, from, next) {
       next();
       return;
     }
-    next(`/login?redirect=${to.path}`);
+    if (to.path === "/") {
+      next("/login");
+      return;
+    }
+    next(false);
   }
 }
 
