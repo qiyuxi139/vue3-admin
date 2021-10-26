@@ -61,7 +61,10 @@ export default defineConfig({
       output: {}
     },
     outDir: "dist",
-    assetsDir: "assets"
+    assetsDir: "assets",
+    assetsInlineLimit: 4096, // 4kb
+    cssCodeSplit: true,
+    watch: {}
   },
   css: {
     preprocessorOptions: {
