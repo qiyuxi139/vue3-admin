@@ -33,7 +33,7 @@ export async function handleBeforeEach(to, from, next) {
       next();
       return;
     }
-    if (to.path === "/") {
+    if (to.path !== "/login") {
       next("/login");
       return;
     }
