@@ -1,5 +1,5 @@
 <template>
-  <div v-if="!item.hidden">
+  <div v-if="!item.hidden" class="app_sidebar_item">
     <template
       v-if="
         hasOneShowingChild(item.children, item) &&
@@ -13,7 +13,13 @@
           :class="{ 'submenu-title-noDropdown': !isNext }"
         >
           <template #title>
-            <span>{{ childState.onlyOneChild.meta.title }}</span>
+            <el-badge
+              :is-dot="childState.onlyOneChild.isDot"
+              :max="99"
+              :value="childState.onlyOneChild.tipsNum || undefined"
+            >
+              <span>{{ childState.onlyOneChild.meta.title }}</span>
+            </el-badge>
           </template>
           <SvgIcon
             v-if="childState.onlyOneChild.meta && childState.onlyOneChild.meta.icon"
@@ -25,7 +31,9 @@
     <el-sub-menu v-else :index="resolvePath(item.path)" popper-append-to-body>
       <template v-slot:title v-if="item.meta">
         <SvgIcon v-if="item.meta.icon" :icon="item.meta && item.meta.icon" />
-        <span>{{ item.meta.title }}</span>
+        <el-badge :is-dot="item.isDot" :value="item.tipsNum || undefined" :max="99">
+          <span>{{ item.meta.title }}</span>
+        </el-badge>
       </template>
       <SidebarItem
         v-for="child in item.children"
@@ -95,3 +103,22 @@ function resolvePath(routePath) {
   return join(basePath.value, routePath);
 }
 </script>
+
+<style lang="scss">
+.app_sidebar_item {
+  position: relative;
+  .el-badge {
+    position: static;
+    .el-badge__content {
+      top: 50%;
+      right: 20px;
+      transform: translateY(-50%);
+      &.is-dot {
+        width: 6px;
+        height: 6px;
+        right: 30px;
+      }
+    }
+  }
+}
+</style>

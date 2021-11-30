@@ -87,10 +87,8 @@ const handleGetList = async () => {
     if (data && data.code === 200 && data.result) {
       const { list: mList, total } = data.result;
       list.value = mList;
-      console.log(list.value, "-=--");
       pager.total = total;
     }
-    console.log(data);
   } catch (error) {
     message.error(error.message);
   } finally {

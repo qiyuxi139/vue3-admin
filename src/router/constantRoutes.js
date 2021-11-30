@@ -38,10 +38,17 @@ export default [
     path: "/list",
     component: Layout,
     name: "List",
+    alwaysShow: true,
+    id: 2,
+    meta: {
+      title: "测试",
+      icon: "list"
+    },
     children: [
       {
-        path: "",
+        path: "mock",
         name: "ListIndex",
+        id: 1,
         component: () => import("@/views/list/list.vue"),
         meta: {
           icon: "list",

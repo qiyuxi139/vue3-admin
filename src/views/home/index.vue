@@ -1,11 +1,23 @@
 <template>
   <div class="homeWrap">
-    <MulipleUpload v-model="imgList" listType="text" />
+    <el-button @click="handleChangeMenuStatus">菜单栏状态改变</el-button>
   </div>
 </template>
 
 <script setup>
-import { ref } from "vue";
-import MulipleUpload from "@/components/EasyUpload/MulipleUpload.vue";
-const imgList = ref([]);
+import { nextTick, onMounted } from "vue";
+import { useStore } from "vuex";
+const store = useStore();
+
+const handleChangeMenuStatus = () => {
+  nextTick(() => {
+    console.log(store.getters.routes[0]);
+  });
+};
+
+onMounted(() => {
+  store.commit("permission/CHANGE_SIDEBAR_STATUS", {
+    actions: [{ id: 1, payload: { isDot: true } }]
+  });
+});
 </script>

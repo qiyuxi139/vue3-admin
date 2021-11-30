@@ -58,7 +58,11 @@ export default defineConfig({
       input: {
         main: resolve(__dirname, "./index.html")
       },
-      output: {}
+      output: {
+        chunkFileNames: "static/js/[name]-[hash].js",
+        entryFileNames: "static/js/[name]-[hash].js",
+        assetFileNames: "static/[ext]/[name]-[hash].[ext]"
+      }
     },
     outDir: "dist",
     assetsDir: "assets",
