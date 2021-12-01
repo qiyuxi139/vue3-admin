@@ -49,11 +49,26 @@ export default [
         path: "mock",
         name: "ListIndex",
         id: 1,
-        component: () => import("@/views/list/list.vue"),
+        isDot: false,
+        component: () => import("@/layout/router-view.vue"),
         meta: {
           icon: "list",
-          title: "列表"
-        }
+          title: "列表2"
+        },
+        alwaysShow: true,
+        children: [
+          {
+            path: "mock",
+            name: "ListIndex",
+            id: 1,
+            isDot: false,
+            component: () => import("@/views/list/list.vue"),
+            meta: {
+              icon: "list",
+              title: "列表3"
+            }
+          }
+        ]
       }
     ]
   }

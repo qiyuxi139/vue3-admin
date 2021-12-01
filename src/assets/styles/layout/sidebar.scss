@@ -34,6 +34,9 @@
     }
     .menu-item-wrapper {
       min-height: 100%;
+      .app_sidebar_item {
+        position: relative;
+      }
       .linkStyle {
         text-decoration: none;
       }
@@ -43,6 +46,19 @@
       .el-sub-menu__title,
       .submenu-title-noDropdown,
       .el-menu-item {
+        .el-badge {
+          position: static;
+          .el-badge__content {
+            top: 50%;
+            right: 20px;
+            transform: translateY(-50%);
+            &.is-dot {
+              width: 6px;
+              height: 6px;
+              right: 30px;
+            }
+          }
+        }
         .svg-icon {
           width: 14px;
           height: 14px;
@@ -167,6 +183,7 @@
     .el-sub-menu {
       &>.el-sub-menu__title {
         &>span,
+        .el-badge,
         i {
           display: inline-block;
           height: 0;

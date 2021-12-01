@@ -22,7 +22,6 @@ const mutations = {
     state.roles = payload;
   },
   CHANGE_SIDEBAR_STATUS(state, { actions } = {}) {
-    // 该数组每一项表示目标在routes中的位置
     actions.forEach((it) => changeSidebarStatus(state.routes, it));
   }
 };
@@ -59,25 +58,18 @@ export default {
 };
 
 function changeSidebarStatus(routes, route) {
-  let arr = [];
-  function _change(_routes, _route) {
-    if (type(_routes) !== "array") {
+  if (type(routes) !== "array") {
+    return;
+  }
+  routes.forEach((it) => {
+    if (it.id === route.id) {
+      console.log(it, "it");
+      const { payload } = route;
+      Object.keys(payload).forEach((key) => {
+        it[key] = payload[key];
+      });
       return;
     }
-    _routes.forEach((it, i) => {
-      arr.push(i);
-      if (it.id === _route.id) {
-        // const { payload } = route;
-        // Object.keys(payload).forEach((key) => {
-        //   it[key] = payload[key];
-        // });
-        console.log(it);
-        return;
-      }
-      arr.push("children");
-      _change(it.children, _route);
-    });
-  }
-  _change(routes, route);
-  console.log(arr);
+    changeSidebarStatus(it.children, route);
+  });
 }

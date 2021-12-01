@@ -1,7 +1,7 @@
 <template>
   <el-scrollbar class="side-scrollbar">
     <el-menu class="menu-item-wrapper" :collapse="sidebarFold" :default-active="route.path">
-      <SidebarItem v-for="item in routes" :key="item.path" :item="item" :basePath="item.path" />
+      <SidebarItem v-for="item in routes" :key="item.path" :item="item" :path="item.path" />
     </el-menu>
   </el-scrollbar>
 </template>

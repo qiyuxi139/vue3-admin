@@ -46,13 +46,22 @@
 </template>
 
 <script setup>
-import { reactive, ref } from "vue";
+import { reactive, ref, onMounted, nextTick } from "vue";
+import { useStore } from "vuex";
 import { getItemList } from "@/apis/item";
 import message from "@/utils/reset/mElMessage";
 import Pagination from "@/components/Pagination.vue";
 import BigImg from "@/components/ShowImage/BigImg.vue";
 import { fixedTwo } from "@/utils/format";
 import dayjs from "dayjs";
+const store = useStore();
+onMounted(() => {
+  nextTick(() => {
+    store.commit("permission/CHANGE_SIDEBAR_STATUS", {
+      actions: [{ id: 1, payload: { isDot: true } }]
+    });
+  });
+});
 
 const form = reactive({
   name: ""
