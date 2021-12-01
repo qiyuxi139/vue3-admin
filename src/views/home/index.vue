@@ -1,11 +1,13 @@
 <template>
   <div class="homeWrap">
     <el-button @click="handleChangeMenuStatus">菜单栏状态改变</el-button>
+    <P :total="999" />
   </div>
 </template>
 
 <script setup>
 import { nextTick, onMounted } from "vue";
+import P from "@/components/Pagination.vue";
 import { useStore } from "vuex";
 const store = useStore();
 
