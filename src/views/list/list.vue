@@ -34,6 +34,11 @@
             {{ dayjs(+row.createdAt).format("YYYY-MM-DD HH:mm:ss") }}
           </template>
         </el-table-column>
+        <el-table-column align="center" label="操作">
+          <template #default="{ row }">
+            <el-button @click="handleView(row)">查看详情</el-button>
+          </template>
+        </el-table-column>
       </el-table>
       <Pagination
         :page="pager.page"
@@ -48,13 +53,17 @@
 <script setup>
 import { reactive, ref, onMounted, nextTick } from "vue";
 import { useStore } from "vuex";
+import { useRouter } from "vue-router";
 import { getItemList } from "@/apis/item";
 import message from "@/utils/reset/mElMessage";
 import Pagination from "@/components/Pagination.vue";
 import BigImg from "@/components/ShowImage/BigImg.vue";
 import { fixedTwo } from "@/utils/format";
 import dayjs from "dayjs";
+
 const store = useStore();
+const router = useRouter();
+
 onMounted(() => {
   nextTick(() => {
     store.commit("permission/CHANGE_SIDEBAR_STATUS", {
@@ -122,6 +131,17 @@ const handleReset = () => {
 
 // 开始查询
 handleGetList();
+
+const handleView = (row) => {
+  console.log(row);
+  router.push({
+    path: "/list/test/mock/detail/" + row.id
+  });
+  // const route = router.resolve({
+  //   path: "mock/detail/" + row.id
+  // });
+  // console.log(route);
+};
 </script>
 
 <style lang="scss"></style>

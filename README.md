@@ -71,3 +71,24 @@
 ├── package.json               # 项目html模板
 └── vite.config.js             # vite配置
 ```
+
+## 路由配置
+
+所在项目路径：/src/router
+
+**路由对象**
+
+- id
+- name 路由对象名称 唯一
+- path 页面路径
+- component 加载的组件
+- alwaysShow 总是展示 表示这个配置总是显示在菜单栏
+- redirect 重定向地址 值为 noRedirect 的话 在面包屑导航中该项无导航功能
+- meta 元信息
+  - title 在菜单栏标题
+  - icon 在菜单栏展示的前缀icon 值是/src/assets/svg下的svg文件名
+  - parentId 父页面id 该项是为了在面包屑导航显示层级中展示某一项 需要配合 id和name属性
+  - parent 父页面信息 和parenId功能相同 可二选一
+    - path 路劲
+    - title 名称
+- children 子页面

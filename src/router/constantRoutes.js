@@ -39,18 +39,18 @@ export default [
     component: Layout,
     name: "List",
     alwaysShow: true,
-    id: 2,
+    redirect: "noRedirect",
     meta: {
       title: "测试",
       icon: "list"
     },
     children: [
       {
-        path: "mock",
+        path: "test",
         name: "ListIndex",
-        id: 1,
         isDot: false,
         component: () => import("@/layout/router-view.vue"),
+        redirect: "noRedirect",
         meta: {
           icon: "list",
           title: "列表2"
@@ -59,13 +59,38 @@ export default [
         children: [
           {
             path: "mock",
-            name: "ListIndex",
+            name: "List3",
             id: 1,
             isDot: false,
             component: () => import("@/views/list/list.vue"),
             meta: {
               icon: "list",
               title: "列表3"
+            }
+          },
+          {
+            path: "mock/detail/:id",
+            name: "ListDetail",
+            hidden: true,
+            component: () => import("@/views/list/detail.vue"),
+            meta: {
+              parent: {
+                path: "/list/test/mock",
+                title: "列表3"
+              },
+              parentId: 1,
+              icon: "list",
+              title: "列表详情页"
+            }
+          },
+          {
+            path: "view1",
+            name: "View1",
+            isDot: false,
+            component: () => import("@/views/list/view1.vue"),
+            meta: {
+              icon: "list",
+              title: "页面1"
             }
           }
         ]
